@@ -968,7 +968,7 @@ var QUIZ = {
         { id: "c", text: "Hold the balance and open no new branch today.", key: false, score: { expansion: 0, patience: 2, exit: 1, dormancy: 0 } },
         { id: "d", text: "Step away from the board for a stretch and let the balance accrue untouched.", key: false, score: { expansion: 0, patience: 0, exit: 0, dormancy: 3 } }
       ],
-      rule: "Charters and licenses use the same falling price auction. Buyers set the price, not the protocol. The open is twice yesterday's closing sale, or twice the floor if nothing sold. Payment is $STANDARD, burned on receipt. A per charter daily cap applies, purchases fill first come first served, and unsold licenses never roll over.",
+      rule: "Charters and licenses run the same falling price auction, but not at the same open. A license opens at twice yesterday's closing sale, a charter at three times it, because a scarce seat should reprice into demand faster than a daily commodity. Payment is $STANDARD, burned on receipt. A per charter daily cap applies, purchases fill first come first served, and unsold licenses never roll over.",
       source: "08 How the auctions work, opening paragraph, the license auction list and the two intentional consequences. 07 Branches and expansion licenses, payment burned."
     },
     {
@@ -992,7 +992,7 @@ var QUIZ = {
         { id: "c", text: "Stay, and collect the half of every exit fee paid to holders.", key: true, score: { expansion: 0, patience: 3, exit: 0, dormancy: 0 } },
         { id: "d", text: "Leave the wallet closed this week and take no view while the door is crowded.", key: false, score: { expansion: 0, patience: 0, exit: 0, dormancy: 3 } }
       ],
-      rule: "The resolution fee is congestion pricing on the exit door. Pressure is trailing seven day withdrawals against everything still held. The curve is quadratic between a floor and a ceiling. Your rate locks the moment you commit. Half of every fee burns, half pays the bankers who stayed. Withdrawals are never paused or queued.",
+      rule: "The resolution fee is congestion pricing on the exit door. Pressure is trailing seven day withdrawals against those withdrawals plus everything still held, so it approaches a ceiling rather than running away. The curve is quadratic between a floor and a ceiling. Your rate locks the moment you commit. Half of every fee burns, half pays the bankers who stayed. Withdrawals are never paused or queued.",
       source: "09 Earning and withdrawing, the resolution fee paragraph, the quadratic curve, the rate lock, the half burn half paid split, and withdrawals never paused or queued."
     },
     {
@@ -1056,14 +1056,14 @@ var QUIZ = {
       stamp1: "STANDING",
       stamp2: "PATIENT CAPITAL",
       title: "Patience",
-      body: "This profile holds position through contraction and does not approach the exit door. The protocol answers by paying the unburned half of every resolution and revocation fee to the positions that stayed. It is a bet on other people leaving, and in a quiet market it pays nothing.",
+      body: "This profile holds position through contraction and does not approach the exit door. The protocol answers by paying the unburned half of every resolution and revocation fee to the positions that stayed. It is a bet on other people leaving, and in a quiet market it pays little.",
       verdict: "Recorded as standing. The half of every exit fee that is not burned is paid to this position."
     },
     provisional: {
       stamp1: "PROVISIONAL",
       stamp2: "SUBJECT TO EXIT PRICING",
       title: "Exit",
-      body: "This profile retires branches when the market turns and moves the balance into the wallet. The protocol answers with congestion pricing rather than a gate, so withdrawals are never paused or queued at any fee level and the rate locks the moment you commit. Under expansion the exit sits at the floor, and under contraction it is priced by the crowd, so this profile pays most in the week it most wants to leave.",
+      body: "This profile retires branches when the market turns and moves the balance into the wallet. The protocol answers with congestion pricing rather than a gate, so withdrawals are never paused or queued at any fee level and the rate locks the moment you commit. Nothing about the regime sets that fee. Only how many others are leaving in the same seven days sets it, so this profile pays most in the week it most wants to leave.",
       verdict: "Recorded as leaving. The rate is set by everyone else at the door and locks on commitment."
     },
     revocation: {
@@ -1772,7 +1772,7 @@ var SCHEDULE = [
   ["ISSUED BY", "THE CHARTER OFFICE, UNOFFICIAL"],
   ["AUTHORITY", "NONE"],
   ["ONCHAIN RECORD", "NONE"],
-  ["TRANSFERABLE", "NO"],
+  ["TRANSFERABLE", "NOT YET"],
   ["CONFERS", "NOTHING"],
   ["EXAMINATION", ""],
   ["COUNTERPART FILED", ""]
