@@ -120,7 +120,49 @@ beacon, no remote font and no image. The only external references are six
 anchor hrefs the reader may click.
 
 **14. Keyboard, focus, contrast, reduced motion.**
-See E4's report at docs/E4-qa.md.
+PASS after fixes. E4's full report is at docs/E4-qa.md and it was the most
+valuable pass in the project, because it found three blockers that every other
+agent and Chief had read past.
+
+Fixed, blockers:
+1. The serial checksum was dead. Both branches of the round trip check returned
+   the same value, so the check did nothing, and E4 measured 388 of 651 single
+   character mutations of a serial silently drawing a stranger's card. Base32 is
+   dense enough that almost any mutation decodes to some other valid name, so a
+   round trip can never catch this on its own. Two Crockford check symbols were
+   added. Re measured across eight names and 7,192 mutations: three still decode,
+   all three to the same card, and zero produce a different one. All ten
+   transpositions of a serial are now rejected.
+2. Lookup by name was broken. Any alphanumeric string of six characters or more
+   was treated as a serial and rejected, so typing a name into the register
+   failed. With a real checksum the office can try the serial first and fall
+   through to treating the input as a name, which is what it now does.
+3. The tools row was visible and focusable before any card existed, because
+   display flex beat the hidden attribute. One rule now enforces hidden for
+   every element on the page.
+
+Fixed, majors: names cut at the length limit kept a trailing space the serial
+could not survive; a wallet address in checksum case and in lower case produced
+one serial and two different cards, and now folds to one; the signature and ink
+generators were stateful, so the plate on screen and the plate in the export
+were never the same drawing, and the plate is now byte identical across
+redraws; a long CJK or emoji serial ran off the sheet and is now fitted;
+answering a question dropped focus to the body and now keeps it on the chosen
+option; the canvas label was static and now names the bank, the charter number
+and the stamp; the resting option boundary measured 1.76 to 1 and is now PENCIL
+at 6.6 to 1; the four second square export gave no sign it had heard the click
+and now shows the working state C1 wrote for it.
+
+Not changed. E4 noted that a wallet address typed into the field is written to
+the URL and therefore into browser history. That is the shareable link the brief
+asked for, nothing leaves the machine, and the page sets a no referrer policy so
+the URL does not travel on an outbound click. Recorded rather than fixed.
+
+Reduced motion: nothing on the site animates or transitions, the reduced motion
+block stands as a guard, and the one scroll call is instant rather than smooth.
+
+Network: the page requests itself and nothing else. No fonts, no analytics, no
+beacons, no images.
 
 **15. MIT license and the line offering the code to the protocol team with no
 conditions.**

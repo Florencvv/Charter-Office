@@ -70,6 +70,11 @@ LICENSE         MIT
 docs/           the working papers the site was built from
 ```
 
+`docs/engine.source.js` and `docs/quiz.source.js` are the plate engine and the
+examination data as separate files, which is how they were written before being
+inlined. They are reference copies. index.html is the only thing that runs, and
+editing them changes nothing.
+
 `docs/01-FACTS.md` is the fact ledger. Every claim on the site traces to it, and
 it records which whitepaper parameters are redacted and therefore never appear
 here in any form, including in words rather than digits.

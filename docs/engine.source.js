@@ -1,498 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>The Charter Office</title>
-<meta name="viewport" content="width=1288">
-<meta name="referrer" content="no-referrer">
-<meta name="description" content="An unofficial registry office. The protocol issues licenses, this office issues the paper. Not affiliated with The Standard Reserve.">
-<meta property="og:title" content="The Charter Office, an unofficial registry">
-<meta property="og:description" content="Unofficial and unaffiliated. Nothing here is onchain. The Standard Reserve has not launched and anything selling $STANDARD today is fake.">
-<style>
-html, body { background: #1C1712; }
-body {
-  margin: 0;
-  color: #D9D3C7;
-  font: 17px/28px "Palatino Linotype", Palatino, "Book Antiqua", "URW Palladio L", "Iowan Old Style", Georgia, "Times New Roman", serif;
-  min-width: 1288px;
-  padding: 48px 0 120px;
-}
-::selection { background: #4A4034; color: #F0EBDF; }
-
-a { color: #D9D3C7; text-decoration: none; border-bottom: 1px solid #A89C89; }
-a:hover { border-bottom-color: #D9D3C7; }
-a:focus-visible, button:focus-visible, input:focus-visible {
-  outline: 2px solid #D9D3C7;
-  outline-offset: 3px;
-}
-
-.sheet { width: 1176px; margin: 0 auto; }
-.block { display: flex; align-items: flex-start; gap: 36px; }
-.rail { width: 132px; flex: none; padding-top: 8px; }
-.main { width: 1008px; flex: none; }
-.measure { width: 660px; }
-
-.caps {
-  font-family: Copperplate, "Copperplate Gothic Light", "Engravers MT", "Perpetua Titling MT", Optima, Candara, "Gill Sans MT", "Trebuchet MS", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-}
-.railLabel { font-size: 11px; line-height: 18px; color: #A89C89; margin: 0 0 14px; }
-
-.titling {
-  font-family: Didot, "Didot LT Std", "Bodoni 72", "Bodoni MT", "Hoefler Text", Constantia, Georgia, "Times New Roman", serif;
-  font-weight: 400;
-}
-
-hr.score { border: 0; height: 1px; background: #4A4034; margin: 56px 0; width: 1176px; }
-
-h1.office { font-size: 40px; line-height: 42px; margin: 0 0 28px; color: #F0EBDF; }
-p.lede { font-size: 19px; line-height: 30px; margin: 0 0 14px; }
-p.unoff { font-size: 17px; line-height: 28px; margin: 0; }
-p.unoff span { font-size: 15px; }
-
-h2.head { font-size: 24px; line-height: 30px; margin: 0 0 14px; color: #F0EBDF; }
-h2.notice { font-size: 20px; line-height: 28px; margin: 0 0 28px; color: #F0EBDF; }
-
-.broadside { display: flex; gap: 56px; }
-.broadside div { width: 476px; }
-.broadside p { font-size: 18px; line-height: 29px; margin: 0 0 14px; }
-.broadside p:last-child { margin: 0; }
-
-p { margin: 0 0 14px; }
-p.hint { font-size: 14px; line-height: 22px; color: #A89C89; margin: 14px 0 0; }
-p.hint.bad { color: #D9D3C7; border-top: 1px solid #4A4034; padding-top: 10px; }
-
-.deskrow { display: flex; gap: 14px; align-items: stretch; margin: 28px 0 0; width: 660px; }
-input[type=text] {
-  flex: 1;
-  font: 17px/24px "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-  color: #241C14;
-  background: #E2DCC8;
-  border: 0;
-  padding: 13px 16px;
-  border-radius: 0;
-  min-width: 0;
-}
-input[type=text]::placeholder { color: #61594E; opacity: 1; }
-
-button {
-  font-family: Copperplate, "Copperplate Gothic Light", "Engravers MT", "Perpetua Titling MT", Optima, Candara, "Gill Sans MT", "Trebuchet MS", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 11px;
-  cursor: pointer;
-  border-radius: 0;
-}
-button.paper {
-  color: #241C14;
-  background: #E2DCC8;
-  border: 0;
-  border-top: 2px solid #A63A1C;
-  padding: 13px 22px;
-}
-button.quiet {
-  background: transparent;
-  color: #D9D3C7;
-  border: 1px solid #A89C89;
-  padding: 12px 20px;
-}
-button.quiet:hover { background: #4A4034; }
-button:disabled { cursor: default; color: #A89C89; background: transparent; border: 1px solid #4A4034; }
-
-.plate { margin: 28px 0 0; line-height: 0; }
-canvas#card { display: block; width: 1008px; height: 567px; }
-
-.tools { display: flex; gap: 14px; align-items: center; margin: 28px 0 0; }
-.tools .said { font-size: 14px; color: #A89C89; }
-
-.schedRow { display: flex; align-items: baseline; width: 660px; border-bottom: 1px solid #4A4034; padding-bottom: 6px; margin: 28px 0; }
-.schedRow .k { font-size: 11px; color: #A89C89; width: 200px; flex: none; }
-.schedRow .v { font-size: 15px; color: #D9D3C7; font-family: "Franklin Gothic Medium", "Arial Narrow", "Avenir Next Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 500; }
-.schedRow .v.empty { color: #A89C89; }
-
-.q { width: 660px; margin: 0 0 56px; }
-.q .qn { font-size: 11px; color: #A89C89; margin: 0 0 6px; }
-.q .qs { font-size: 19px; line-height: 30px; margin: 0 0 28px; color: #F0EBDF; }
-.opts { display: flex; flex-direction: column; gap: 14px; }
-.opts button {
-  text-align: left;
-  text-transform: none;
-  letter-spacing: 0;
-  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-  font-size: 17px;
-  line-height: 26px;
-  background: transparent;
-  color: #D9D3C7;
-  border: 0;
-  border-left: 2px solid #4A4034;
-  padding: 4px 0 4px 16px;
-}
-.opts button:hover { border-left-color: #A89C89; }
-.opts button.chosen {
-  border-left-color: #D9D3C7;
-  font-family: Copperplate, "Copperplate Gothic Light", "Engravers MT", Optima, Candara, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 13px;
-}
-.opts button.other { color: #A89C89; }
-
-.reveal { border-top: 1px solid #4A4034; margin: 28px 0 0; padding: 14px 0 0; }
-.reveal .rl { font-size: 11px; color: #A89C89; margin: 0 0 6px; }
-.reveal p { margin: 0; }
-
-.verdict { width: 660px; border-top: 1px solid #4A4034; padding-top: 28px; }
-.verdict h3 { font-size: 24px; line-height: 30px; margin: 0 0 6px; color: #F0EBDF; }
-.verdict .stampline { font-size: 11px; color: #A89C89; margin: 0 0 14px; }
-
-footer { font-size: 14px; line-height: 22px; color: #A89C89; }
-footer .cols { display: flex; gap: 56px; margin: 0 0 28px; }
-footer ul { list-style: none; margin: 0; padding: 0; width: 300px; }
-footer li { margin: 0 0 6px; }
-footer p { width: 660px; margin: 0 0 14px; }
-footer p.last { color: #D9D3C7; }
-
-.noscript { width: 660px; border-top: 1px solid #4A4034; border-bottom: 1px solid #4A4034; padding: 14px 0; margin: 28px 0 0; }
-
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-}
-</style>
-</head>
-<body>
-
-<div class="sheet">
-
-<div class="block">
-  <div class="rail">
-    <p class="railLabel caps">Window one<br>Issuance</p>
-    <p class="railLabel caps">Window two<br>Examination<br>Optional</p>
-  </div>
-  <div class="main">
-    <h1 class="office titling">The Charter Office</h1>
-    <p class="lede measure">The protocol issues licenses. This office issues the paper.</p>
-    <p class="unoff measure"><span class="caps">Unofficial</span>. This office is not the protocol, does not speak for it, and issues nothing the protocol recognises.</p>
-  </div>
-</div>
-
-<hr class="score">
-
-<div class="block">
-  <div class="rail"><p class="railLabel caps">Notice</p></div>
-  <div class="main">
-    <h2 class="notice titling">Read this before you buy anything</h2>
-    <div class="broadside">
-      <div>
-        <p>The Standard Reserve has not launched. There is no live token and no live NFT.</p>
-        <p>The genesis mint has not happened. The protocol's own site still says Coming Soon.</p>
-        <p>Any mint page, presale, or $STANDARD contract that exists today is fake. All of them. There is nothing to buy and nothing to claim.</p>
-        <p>The protocol's own site has a whitelist checker on its mint page. Any other page asking for your address to check eligibility is collecting addresses.</p>
-        <p>The protocol is at <a href="https://www.standardreserve.xyz/">standardreserve.xyz</a> and the whitepaper is at <a href="https://www.standardreserve.xyz/whitepaper/">standardreserve.xyz/whitepaper</a>. The account those pages link to on X is <a href="https://x.com/standard_rsv">@standard_rsv</a>. Believe those three and nothing else.</p>
-      </div>
-      <div>
-        <p>There is nothing to connect a wallet to. A connect button on any $STANDARD page today is either broken or a drainer, and one signature is enough to empty the wallet that signs it.</p>
-        <p>Nobody legitimate ever asks for a seed phrase or a private key. Not support, not a moderator, not a verification step, not a wallet migration. Anyone who asks is stealing.</p>
-        <p>Nobody official messages you first. Treat every account offering help in your replies or your direct messages as a fake, including any account using the name of this office.</p>
-        <p>This office never connects a wallet. It has no wallet button and asks for no signature, no seed phrase, no payment, and no email. If a page carrying this name asks you for any of those, it is not this page.</p>
-        <p>If you have already connected a wallet or typed a seed phrase into a $STANDARD page, treat that wallet as lost. Move what is in it to a wallet whose key has never been entered into a website.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr class="score">
-
-<div class="block">
-  <div class="rail"><p class="railLabel caps">Window one</p></div>
-  <div class="main">
-    <h2 class="head titling">Issuance</h2>
-    <p class="measure">Type any name or wallet address. Nothing is checked, nothing is kept.</p>
-
-    <noscript>
-      <div class="noscript">The engraving is drawn in your browser. With JavaScript switched off, this office cannot cut the plate and no certificate can be issued.</div>
-    </noscript>
-
-    <div class="deskrow">
-      <input type="text" id="nameField" maxlength="48" placeholder="Any name, handle, or address" autocomplete="off" spellcheck="false" aria-label="Name to be entered">
-      <button class="paper" id="issueBtn">Issue the certificate</button>
-    </div>
-    <p class="hint" id="issueHint">The plate is cut on this machine. Nothing leaves it.</p>
-
-    <div class="plate" id="platebox" hidden>
-      <canvas id="card" width="1008" height="567" role="img" aria-label="An engraved commemorative charter certificate"></canvas>
-    </div>
-
-    <div class="tools" id="tools" hidden>
-      <button class="paper" id="dlStd">Download PNG</button>
-      <button class="paper" id="dlLarge">Download large PNG</button>
-      <button class="quiet" id="copyLink">Copy the link</button>
-      <span class="said" id="said"></span>
-    </div>
-  </div>
-</div>
-
-<hr class="score">
-
-<div class="block">
-  <div class="rail"><p class="railLabel caps">The register</p></div>
-  <div class="main">
-    <h2 class="head titling">Look up a certificate</h2>
-    <p class="measure">This office keeps no database and no server. The card is cut from the text itself, so the same text always cuts the same card, on any machine, for anyone.</p>
-    <div class="deskrow">
-      <input type="text" id="lookupField" maxlength="220" placeholder="A name already issued, or its serial" autocomplete="off" spellcheck="false" aria-label="Name or serial">
-      <button class="quiet" id="lookupBtn">Look it up</button>
-    </div>
-    <p class="hint" id="lookupHint"></p>
-  </div>
-</div>
-
-<div style="height:84px"></div>
-
-<div class="block">
-  <div class="rail"><p class="railLabel caps">Window two</p></div>
-  <div class="main">
-    <h2 class="head titling">Examination</h2>
-    <p class="measure">The examination is optional. It changes the stamp, not the paper.</p>
-    <p class="measure">Your certificate is already issued. Nothing in here can add to it or take it back.</p>
-
-    <div class="schedRow">
-      <span class="k caps">Examination</span>
-      <span class="v empty" id="examSchedVal">Not sat</span>
-    </div>
-
-    <button class="quiet" id="examStart">Sit the examination</button>
-    <div id="examBody"></div>
-  </div>
-</div>
-
-<hr class="score">
-
-<div class="block">
-  <div class="rail"><p class="railLabel caps">Footnotes</p></div>
-  <div class="main">
-    <footer>
-      <div class="cols">
-        <ul>
-          <li><a href="https://www.standardreserve.xyz/whitepaper/">The whitepaper, v0.1</a></li>
-          <li><a href="https://www.standardreserve.xyz/app/protocol/">The Standard Reserve</a></li>
-          <li><a href="https://x.com/standard_rsv">The Standard Reserve on X</a></li>
-        </ul>
-        <ul>
-          <li>An unofficial office, published by <a href="https://x.com/flxrnc">@flxrnc</a>.</li>
-          <li>The protocol and the whitepaper are the work of <a href="https://x.com/0xbeans">@0xbeans</a>.</li>
-          <li>The code for this office is MIT licensed.</li>
-        </ul>
-      </div>
-      <p>If the protocol team wants any of this, the code, the copy, or the engraving, it is theirs to take, change, ship, or bin, with no credit and no reply expected.</p>
-      <p class="last">Nothing is live. No token, no NFT, no mint. Any $STANDARD sale you see today is fake.</p>
-    </footer>
-  </div>
-</div>
-
-</div>
-
-<script>
-/* The Charter Office. Examination data.
-   Seven questions, four options each, one key option per question.
-   Every claim traced to 01-FACTS.md. No redacted value appears here.
-   The interface never marks an option right or wrong. The key field is a
-   reading of the mechanism, not a judgement on the person answering. */
-
-var QUIZ = {
-  questions: [
-    {
-      id: "buying-into-the-auction",
-      scene: "Your charter has one branch and a balance large enough to buy an expansion license. The auction opened high this morning and decays toward a floor across the day. Other bankers are reading the same board.",
-      options: [
-        { id: "a", text: "Buy at the open and pay the premium for certainty.", key: false, score: { expansion: 2, patience: 0, exit: 0, dormancy: 0 } },
-        { id: "b", text: "Wait for the afternoon price and risk the licenses selling out.", key: true, score: { expansion: 3, patience: 1, exit: 0, dormancy: 0 } },
-        { id: "c", text: "Hold the balance and open no new branch today.", key: false, score: { expansion: 0, patience: 2, exit: 1, dormancy: 0 } },
-        { id: "d", text: "Step away from the board for a stretch and let the balance accrue untouched.", key: false, score: { expansion: 0, patience: 0, exit: 0, dormancy: 3 } }
-      ],
-      rule: "Charters and licenses use the same falling price auction. Buyers set the price, not the protocol. The open is twice yesterday's closing sale, or twice the floor if nothing sold. Payment is $STANDARD, burned on receipt. A per charter daily cap applies, purchases fill first come first served, and unsold licenses never roll over.",
-      source: "08 How the auctions work, opening paragraph, the license auction list and the two intentional consequences. 07 Branches and expansion licenses, payment burned."
-    },
-    {
-      id: "flow-turns-negative",
-      scene: "Net flow has been negative for several epochs. Your balance ticks up more slowly than it did last week, and the license board is showing its lowest prices since you took the charter. Nothing else about the position has changed.",
-      options: [
-        { id: "a", text: "Retire a branch now and take part of the balance out.", key: false, score: { expansion: 0, patience: 0, exit: 3, dormancy: 0 } },
-        { id: "b", text: "Wait for net flow to turn positive before spending anything.", key: false, score: { expansion: 0, patience: 3, exit: 0, dormancy: 0 } },
-        { id: "c", text: "Buy licenses now while they are cheap and add branches.", key: true, score: { expansion: 3, patience: 2, exit: 0, dormancy: 0 } },
-        { id: "d", text: "Do nothing and let the balance accrue at the cut rate.", key: false, score: { expansion: 0, patience: 0, exit: 0, dormancy: 3 } }
-      ],
-      rule: "Contraction is net flow negative or zero. Issuance is cut immediately and fee routing flips to the contraction vault for buyback and burn. Repricing is asymmetric: in downturns the price decays to the floor faster, so expansion is cheapest during contractions. The bank turns defensive faster than it turns generous.",
-      source: "05 Monetary policy, the two regime table and the asymmetry quote. 08 Two intentional consequences, second bullet."
-    },
-    {
-      id: "crowded-exit-door",
-      scene: "Withdrawals over the trailing seven days are the heaviest you have seen and the resolution fee is climbing with them. Your reason for holding has not changed.",
-      options: [
-        { id: "a", text: "Commit now and lock your rate before the fee climbs further.", key: false, score: { expansion: 0, patience: 0, exit: 3, dormancy: 0 } },
-        { id: "b", text: "Wait for the crowd to clear and exit later at a lower fee.", key: false, score: { expansion: 0, patience: 1, exit: 2, dormancy: 0 } },
-        { id: "c", text: "Stay, and collect the half of every exit fee paid to holders.", key: true, score: { expansion: 0, patience: 3, exit: 0, dormancy: 0 } },
-        { id: "d", text: "Leave the wallet closed this week and take no view while the door is crowded.", key: false, score: { expansion: 0, patience: 0, exit: 0, dormancy: 3 } }
-      ],
-      rule: "The resolution fee is congestion pricing on the exit door. Pressure is trailing seven day withdrawals against everything still held. The curve is quadratic between a floor and a ceiling. Your rate locks the moment you commit. Half of every fee burns, half pays the bankers who stayed. Withdrawals are never paused or queued.",
-      source: "09 Earning and withdrawing, the resolution fee paragraph, the quadratic curve, the rate lock, the half burn half paid split, and withdrawals never paused or queued."
-    },
-    {
-      id: "retiring-a-branch",
-      scene: "Your charter runs ten branches and the balance is the largest it has been. You want to take some of it out without closing the bank. Retirement is the only way to move accrued balance into your wallet.",
-      options: [
-        { id: "a", text: "Retire several branches at once and take a larger share now.", key: false, score: { expansion: 0, patience: 0, exit: 3, dormancy: 0 } },
-        { id: "b", text: "Retire one branch of ten and leave the rest earning.", key: true, score: { expansion: 1, patience: 1, exit: 2, dormancy: 0 } },
-        { id: "c", text: "Retire nothing and let the balance keep accruing.", key: false, score: { expansion: 0, patience: 3, exit: 0, dormancy: 0 } },
-        { id: "d", text: "Retire all ten, take the whole balance, and buy back in later.", key: false, score: { expansion: 0, patience: 0, exit: 3, dormancy: 0 } }
-      ],
-      rule: "Retirement liquidates that branch's share of the accrued balance and permanently retires the vehicle that produced it. Retiring one branch of ten liquidates one tenth. Retiring all ten liquidates everything and burns the charter. The only way back is buying a charter at auction. There are no revolving doors.",
-      source: "09 Earning and withdrawing, the pro rata rule and the line on extracting value. 06 Charters, lifecycle and no revolving doors."
-    },
-    {
-      id: "going-quiet",
-      scene: "You have the branches you want and no plan to touch the charter for a season. The balance accrues on its own while you leave the wallet alone.",
-      options: [
-        { id: "a", text: "Interact with the charter now and then, even with nothing to do.", key: true, score: { expansion: 0, patience: 2, exit: 0, dormancy: 0 } },
-        { id: "b", text: "Retire everything now and buy a new charter when you return.", key: false, score: { expansion: 0, patience: 0, exit: 3, dormancy: 0 } },
-        { id: "c", text: "Open another branch so the charter gives you a reason to come back.", key: false, score: { expansion: 3, patience: 0, exit: 0, dormancy: 0 } },
-        { id: "d", text: "Leave the wallet untouched for the season and accept the quiet.", key: false, score: { expansion: 0, patience: 0, exit: 0, dormancy: 4 } }
-      ],
-      rule: "A wallet inactive for 30 days can be reported by anyone. The informant takes 2% of the dormant balance, capped at 100,000 tokens. The dormant wallet pays a 70% revocation fee, its branches shutter, its charter burns, and the remaining 30% is sent on. A zero cost check in exists, so holding is free.",
-      source: "10 Dormant bankers, the four published steps and the closing paragraph on staying active being free."
-    },
-    {
-      id: "one-hour-spike",
-      scene: "Someone moved the pool hard for an hour and the price is well off where it sat this morning. Your balance is streaming second by second and you are working out whether the bank has changed anything in response.",
-      options: [
-        { id: "a", text: "Treat the hour as a rate change and buy a license now.", key: false, score: { expansion: 3, patience: 0, exit: 0, dormancy: 0 } },
-        { id: "b", text: "Wait for the epochs to close before reading anything into it.", key: false, score: { expansion: 0, patience: 3, exit: 0, dormancy: 0 } },
-        { id: "c", text: "Watch where fees are landing rather than watching the issuance rate.", key: true, score: { expansion: 1, patience: 1, exit: 0, dormancy: 0 } },
-        { id: "d", text: "Retire a branch while the price is where it is and take that share out.", key: false, score: { expansion: 0, patience: 0, exit: 3, dormancy: 0 } }
-      ],
-      rule: "The issuance rate moves on the sum of the last two completed epochs, so one manipulated hour cannot swing it. Fee routing moves on the sign of the current epoch's net flow alone. Both are measured at the canonical pool and denominated in ETH.",
-      source: "04 The net flow signal, all four bullets. 05 Monetary policy, issuance streamed second by second across the epoch."
-    },
-    {
-      id: "where-the-fees-go",
-      scene: "Net flow is negative this epoch. Your ETH from the charter auction and a trader's sell fee land in the same engine. Someone tells you the bank will step in and defend. You are deciding how much to count on that.",
-      options: [
-        { id: "a", text: "Assume defense comes in small repeated steps rather than one visible move.", key: true, score: { expansion: 1, patience: 1, exit: 0, dormancy: 0 } },
-        { id: "b", text: "Wait for a single large defensive buy and plan around that moment.", key: false, score: { expansion: 3, patience: 0, exit: 0, dormancy: 0 } },
-        { id: "c", text: "Count on none of it and decide as though defense does not exist.", key: false, score: { expansion: 0, patience: 0, exit: 3, dormancy: 0 } },
-        { id: "d", text: "Leave the vaults to the bank and stop checking on them for a while.", key: false, score: { expansion: 0, patience: 0, exit: 0, dormancy: 3 } }
-      ],
-      rule: "Protocol ETH splits the same way in either regime: 70% to the active vault, 15% to protocol owned liquidity, 15% to the team. The expansion vault buys hard reserve assets. The contraction vault buys $STANDARD and burns all of it in rate limited hourly steps, so defense cannot be baited into one blockable shot.",
-      source: "11 Fees, reserves, defense, the fee split, the reserve purchases and the rate limited buyback. 02 The six entities, the vaults row."
-    }
-  ],
-  ranks: {
-    expansion: {
-      stamp1: "CLEARED FOR EXPANSION",
-      stamp2: "LICENSE BURNED ON RECEIPT",
-      title: "Expansion",
-      body: "This profile turns balance into branches, up to the ten a charter can hold, at the daily falling price auction. The protocol answers by taking payment in $STANDARD and burning all of it, so growth here is paid for out of float. Total issuance per day is capped, so opening a branch changes how the issue is divided, not how much exists.",
-      verdict: "Recorded as a buyer of licenses. The office enters the burn and takes no view on the outcome."
-    },
-    patient: {
-      stamp1: "STANDING",
-      stamp2: "PATIENT CAPITAL",
-      title: "Patience",
-      body: "This profile holds position through contraction and does not approach the exit door. The protocol answers by paying the unburned half of every resolution and revocation fee to the positions that stayed. It is a bet on other people leaving, and in a quiet market it pays nothing.",
-      verdict: "Recorded as standing. The half of every exit fee that is not burned is paid to this position."
-    },
-    provisional: {
-      stamp1: "PROVISIONAL",
-      stamp2: "SUBJECT TO EXIT PRICING",
-      title: "Exit",
-      body: "This profile retires branches when the market turns and moves the balance into the wallet. The protocol answers with congestion pricing rather than a gate, so withdrawals are never paused or queued at any fee level and the rate locks the moment you commit. Under expansion the exit sits at the floor, and under contraction it is priced by the crowd, so this profile pays most in the week it most wants to leave.",
-      verdict: "Recorded as leaving. The rate is set by everyone else at the door and locks on commitment."
-    },
-    revocation: {
-      stamp1: "REVOCATION NOTICE",
-      stamp2: "REPORTABLE AFTER 30 DAYS",
-      title: "Dormancy",
-      body: "This profile stops interacting and lets the balance sit. After 30 days the wallet can be reported by anyone, the informant is paid a bounty, and the wallet pays a 70% revocation fee, half burned and half paid to the bankers who stayed. Staying active is free. Any interaction resets the clock, and a zero cost check in exists for bankers who only want to hold. What is charged here is silence, not holding.",
-      verdict: "No interaction on file. Reportable by anyone after 30 days. The remedy costs nothing."
-    },
-    sovereign: {
-      stamp1: "SOVEREIGN",
-      stamp2: "EXAMINED AND FOUND CORRECT",
-      title: "Sovereign, examined and found correct",
-      body: "All seven answers match the mechanics as published. This is a reading of the document, not a description of behaviour. It is the only mark on the sheet applied without ink.",
-      verdict: "Examined on all seven counts and found correct. Entered without ink."
-    }
-  },
-  profileRank: { expansion: "expansion", patience: "patient", exit: "provisional", dormancy: "revocation" },
-  tiebreak: ["dormancy", "exit", "expansion", "patience"],
-  sovereign: "sovereign"
-};
-
-/* NOTES FOR THE ENGINEER
-
-   Profile totals map to rank ids like this, because the profile names and the
-   rank ids are not the same words:
-   expansion goes to expansion, patience goes to patient, exit goes to
-   provisional, dormancy goes to revocation.
-
-   Resolution, in order. Count the key options. Seven of seven returns the rank
-   named in the sovereign field and stops, overriding all four profile totals.
-   Otherwise sum the four profiles and take the highest. On a tie, walk the
-   tiebreak array in order and take the first profile still level at the top.
-   An unanswered question scores nothing and forfeits its key mark.
-
-   Question six keeps D1's one hour spike stem, so its key is option c. Under
-   that stem the rate cannot answer to a single hour, while fee routing answers
-   to the sign of the epoch in progress. Option c is the only one that reads
-   both levers correctly. Option b is sound about the rate and silent about the
-   fees, which is why it is not the key.
-
-   TRACES, scored by hand against the table above.
-
-   Trace 1. Answers b, c, c, b, a, c, a.
-   Key marks seven of seven, so the sovereign rule fires and stops.
-   Unused profile totals: expansion 9, patience 11, exit 2, dormancy 0.
-   RANK sovereign.
-
-   Trace 2. Answers a, c, b, b, c, a, b. Key marks two of seven.
-   expansion 2 plus 3 plus 0 plus 1 plus 3 plus 3 plus 3 equals 15.
-   patience 0 plus 2 plus 1 plus 1 plus 0 plus 0 plus 0 equals 4.
-   exit 0 plus 0 plus 2 plus 2 plus 0 plus 0 plus 0 equals 4.
-   dormancy 0. Highest is expansion at 15.
-   RANK expansion.
-
-   Trace 3. Answers c, a, a, a, b, d, c. Key marks none.
-   expansion 0.
-   patience 2 plus 0 plus 0 plus 0 plus 0 plus 0 plus 0 equals 2.
-   exit 1 plus 3 plus 3 plus 3 plus 3 plus 3 plus 3 equals 19.
-   dormancy 0. Highest is exit at 19.
-   RANK provisional.
-
-   Trace 4. Answers d, d, d, c, d, b, d. Key marks none.
-   expansion 0.
-   patience 0 plus 0 plus 0 plus 3 plus 0 plus 3 plus 0 equals 6.
-   exit 0.
-   dormancy 3 plus 3 plus 3 plus 0 plus 4 plus 0 plus 3 equals 16.
-   Highest is dormancy at 16.
-   RANK revocation.
-
-   Trace 5, the tie. Answers d, b, c, c, d, c, d. Key marks two of seven.
-   expansion 0 plus 0 plus 0 plus 0 plus 0 plus 1 plus 0 equals 1.
-   patience 0 plus 3 plus 3 plus 3 plus 0 plus 1 plus 0 equals 10.
-   exit 0.
-   dormancy 3 plus 0 plus 0 plus 0 plus 4 plus 0 plus 3 equals 10.
-   Patience and dormancy are level at 10. The tiebreak array reads dormancy
-   first, so dormancy takes it.
-   RANK revocation.
-
-   Trace 6. Answers c, b, c, c, a, b, a. Key marks three of seven.
-   expansion 0 plus 0 plus 0 plus 0 plus 0 plus 0 plus 1 equals 1.
-   patience 2 plus 3 plus 3 plus 3 plus 2 plus 3 plus 1 equals 17.
-   exit 1 plus 0 plus 0 plus 0 plus 0 plus 0 plus 0 equals 1.
-   dormancy 0. Highest is patience at 17.
-   RANK patient.
-
-   All five ranks are reachable and the tiebreak order is exercised by trace 5. */
+"use strict";
 
 /* THE CHARTER OFFICE. Plate engine.
    Curve mathematics from A2. Structure from A3. Nothing here touches
@@ -558,18 +64,20 @@ function byteStream(str) {
   };
 }
 
+var ADDR = /^0x[0-9a-fA-F]{40}$/;
+
 function normalise(raw) {
   var s = String(raw == null ? "" : raw);
   if (s.normalize) { s = s.normalize("NFC"); }
   s = s.replace(/\s+/g, " ").trim();
-  if (s.length > 48) { s = s.slice(0, 48); }
+  if (s.length > 48) { s = s.slice(0, 48).trim(); }
+  if (ADDR.test(s)) { s = s.toLowerCase(); }
   return s;
 }
 
 /* ================================================= the serial, and reading it back */
 
 var C32 = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
-var ADDR = /^0x[0-9a-fA-F]{40}$/;
 var utf8enc = new TextEncoder();
 var utf8dec = new TextDecoder();
 
@@ -606,7 +114,23 @@ function c32ToBytes(s) {
   return bytes;
 }
 
-function encodeSerial(name) {
+/* Crockford base32 is dense, so almost any mutation of a serial still decodes
+   to some other perfectly valid name, and a round trip check cannot tell the
+   difference. E4 measured it: 388 of 651 single character mutations were
+   accepted and quietly drew a stranger's card. Crockford's answer is a check
+   symbol, and two of them put the odds of a silent wrong card near one in
+   thirteen hundred. */
+
+function checkBits(bytes) {
+  var h = 2166136261, i;
+  for (i = 0; i < bytes.length; i += 1) {
+    h ^= bytes[i];
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0) % 1024;
+}
+
+function payloadBytes(name) {
   var bytes, i;
   if (ADDR.test(name)) {
     bytes = [1];
@@ -616,13 +140,24 @@ function encodeSerial(name) {
     var u = utf8enc.encode(name);
     for (i = 0; i < u.length; i += 1) { bytes.push(u[i]); }
   }
-  return bytesToC32(bytes);
+  return bytes;
+}
+
+function encodeSerial(name) {
+  var bytes = payloadBytes(name);
+  var c = checkBits(bytes);
+  return bytesToC32(bytes) + C32[(c >>> 5) & 31] + C32[c & 31];
 }
 
 function decodeSerial(serial) {
   var clean = String(serial).toUpperCase().replace(/[^0-9A-Z]/g, "");
-  if (clean.length < 4) { return null; }
+  clean = clean.replace(/I|L/g, "1").replace(/O/g, "0").replace(/U/g, "V");
+  if (clean.length < 6) { return null; }
+  var given = C32.indexOf(clean[clean.length - 2]) * 32 + C32.indexOf(clean[clean.length - 1]);
+  if (given < 0) { return null; }
+  clean = clean.slice(0, clean.length - 2);
   var bytes = c32ToBytes(clean);
+  if (bytes && checkBits(bytes) !== given) { return null; }
   if (!bytes || bytes.length < 2) { return null; }
   var kind = bytes[0], body = bytes.slice(1), i;
   if (kind === 1) {
@@ -633,9 +168,9 @@ function decodeSerial(serial) {
   }
   if (kind !== 0) { return null; }
   try {
-    var out = utf8dec.decode(new Uint8Array(body)).replace(/ +$/, "");
-    out = normalise(out);
-    return out && encodeSerial(out) === clean ? out : (out || null);
+    var out = normalise(utf8dec.decode(new Uint8Array(body)));
+    if (!out) { return null; }
+    return bytesToC32(payloadBytes(out)) === clean ? out : null;
   } catch (e) { return null; }
 }
 
@@ -724,8 +259,7 @@ function deriveCard(rawInput) {
     year: String(year),
     serial: encodeSerial(name),
     g: g,
-    sigRng: makeRng(name + " countersigned"),
-    inkRng: makeRng(name + " ink")
+    seedName: name
   };
 }
 
@@ -1345,7 +879,7 @@ function drawSignatureRow(ctx, L, card) {
   /* A3 entry 6. Three capacities on one line, one of them signed. A blank rule
      on a printed form reads as an office that exists and was not required. */
   var caps = ["CLERK", "EXAMINER", "KEEPER OF THE REGISTER"];
-  var rng = card.sigRng;
+  var rng = makeRng(card.seedName + " countersigned");
   for (var i = 0; i < 3; i += 1) {
     var x = L.sigX + i * (L.sigW + L.sigGap);
     if (i === 0) { drawSignature(ctx, x + 14, L.sigY - 12, L.sigW - 28, rng, INK); }
@@ -1511,9 +1045,10 @@ function drawPlate(ctx, card, mode, stampId, scale) {
   ctx.save();
   ctx.translate(g.misNum[0], g.misNum[1]);
   ctx.fillStyle = RED;
-  ctx.font = "11px " + F_NUM;
   ctx.textAlign = "center";
-  ctx.fillText("SERIAL  " + groupSerial(card.serial), W / 2, L.serialY);
+  var serialLine = "SERIAL  " + groupSerial(card.serial);
+  fitFont(ctx, serialLine, F_NUM, W - 120, 11, 5);
+  ctx.fillText(serialLine, W / 2, L.serialY);
   ctx.restore();
 
   ctx.fillStyle = INK;
@@ -1569,7 +1104,7 @@ function drawOverstamp(ctx, s, L, card) {
      top of the serial. If it sits under anything printed with the plate the
      eye reads it as part of the design and the whole effect is gone. */
   var W = L.W, H = L.H;
-  var rng = card.inkRng;
+  var rng = makeRng(card.seedName + " ink");
   var off = document.createElement("canvas");
   off.width = W; off.height = H;
   var o = off.getContext("2d");
@@ -1649,7 +1184,7 @@ function drawOverstamp(ctx, s, L, card) {
 
 function drawSeal(ctx, s, L, card) {
   var cx = L.stampCx, cy = L.stampCy, R = L.stampR;
-  var rng = card.inkRng;
+  var rng = makeRng(card.seedName + " ink");
   var blind = s.kind === "emboss";
 
   ctx.save();
@@ -1731,223 +1266,3 @@ function drawStamp(ctx, id, L, card) {
   if (s.kind === "over") { drawOverstamp(ctx, s, L, card); return; }
   drawSeal(ctx, s, L, card);
 }
-</script>
-<script>
-"use strict";
-
-var state = { card: null, stamp: null, answers: {}, open: false };
-var PLATE_BACKING = 3;
-var SCREEN_W = 1008;
-
-function renderScreen() {
-  if (!state.card) { return; }
-  var cv = document.getElementById("card");
-  var L = LAYOUT.wide;
-  cv.width = L.W * PLATE_BACKING;
-  cv.height = L.H * PLATE_BACKING;
-  cv.style.width = SCREEN_W + "px";
-  cv.style.height = Math.round(SCREEN_W * L.H / L.W) + "px";
-  var ctx = cv.getContext("2d");
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.clearRect(0, 0, cv.width, cv.height);
-  var t0 = performance.now();
-  drawPlate(ctx, state.card, "wide", state.stamp, PLATE_BACKING);
-  window.lastPlateMs = Math.round(performance.now() - t0);
-  document.getElementById("platebox").hidden = false;
-  document.getElementById("tools").hidden = false;
-}
-
-function exportPng(mode) {
-  if (!state.card) { return; }
-  var L = LAYOUT[mode];
-  var cv = document.createElement("canvas");
-  cv.width = L.W * PLATE_BACKING;
-  cv.height = L.H * PLATE_BACKING;
-  drawPlate(cv.getContext("2d"), state.card, mode, state.stamp, PLATE_BACKING);
-
-  var out = document.createElement("canvas");
-  out.width = L.W;
-  out.height = L.H;
-  var octx = out.getContext("2d");
-  octx.imageSmoothingEnabled = true;
-  octx.imageSmoothingQuality = "high";
-  octx.drawImage(cv, 0, 0, L.W, L.H);
-
-  var a = document.createElement("a");
-  /* E3: the filename travels with the PNG into a downloads folder and into
-     every upload dialog. "charter 5262.png" reads as an export of a real
-     charter. The word stays in the name. */
-  a.download = "charter-office-unofficial-" + state.card.charter + ".png";
-  a.href = out.toDataURL("image/png");
-  a.click();
-}
-
-function setUrl() {
-  var p = new URLSearchParams();
-  p.set("n", state.card.input);
-  if (state.stamp) { p.set("e", state.stamp); }
-  history.replaceState(null, "", location.pathname + "?" + p.toString());
-}
-
-function issue(raw) {
-  var hint = document.getElementById("issueHint");
-  var card = deriveCard(raw);
-  if (!card) {
-    hint.textContent = String(raw || "").length
-      ? "Only spaces entered. There is nothing there to engrave."
-      : "Nothing entered. The clerk needs a name.";
-    hint.className = "hint bad";
-    return false;
-  }
-  hint.textContent = "The plate is cut on this machine. Nothing leaves it.";
-  hint.className = "hint";
-  state.card = card;
-  renderScreen();
-  setUrl();
-  return true;
-}
-
-function rankTitle(id) {
-  /* The page and the paper have to agree. The verdict on screen and the value
-     in the EXAMINATION row are the wording that is actually struck on the
-     plate, not the internal profile name. */
-  return Object.prototype.hasOwnProperty.call(STAMP_SHORT, id) ? STAMP_SHORT[id] : "";
-}
-
-function scoreExam() {
-  var totals = { expansion: 0, patience: 0, exit: 0, dormancy: 0 };
-  var keyed = 0, answered = 0, i, j, k;
-  for (i = 0; i < QUIZ.questions.length; i += 1) {
-    var q = QUIZ.questions[i];
-    var chosen = state.answers[q.id];
-    if (!chosen) { continue; }
-    answered += 1;
-    for (j = 0; j < q.options.length; j += 1) {
-      var o = q.options[j];
-      if (o.id !== chosen) { continue; }
-      if (o.key) { keyed += 1; }
-      for (k in o.score) {
-        if (Object.prototype.hasOwnProperty.call(o.score, k)) { totals[k] += o.score[k]; }
-      }
-    }
-  }
-  if (answered < QUIZ.questions.length) { return null; }
-  if (keyed === QUIZ.questions.length) { return QUIZ.sovereign; }
-  var best = null, bestVal = -1;
-  for (i = 0; i < QUIZ.tiebreak.length; i += 1) {
-    var name = QUIZ.tiebreak[i];
-    if (totals[name] > bestVal) { bestVal = totals[name]; best = name; }
-  }
-  return QUIZ.profileRank[best];
-}
-
-function setExamRow(rank) {
-  var el = document.getElementById("examSchedVal");
-  el.textContent = rank ? rankTitle(rank) : "Not sat";
-  el.className = rank ? "v" : "v empty";
-}
-
-function renderExam() {
-  var body = document.getElementById("examBody");
-  if (!state.open || !window.QUIZ) { body.innerHTML = ""; return; }
-  var html = "", i, j;
-  for (i = 0; i < QUIZ.questions.length; i += 1) {
-    var q = QUIZ.questions[i];
-    var chosen = state.answers[q.id];
-    html += '<div class="q"><p class="qn caps">Question ' + (i + 1) + ' of seven</p>';
-    html += '<p class="qs">' + q.scene + "</p><div class=\"opts\">";
-    for (j = 0; j < q.options.length; j += 1) {
-      var o = q.options[j];
-      var cls = chosen ? (chosen === o.id ? "chosen" : "other") : "";
-      html += '<button class="' + cls + '" data-q="' + q.id + '" data-o="' + o.id + '">' + o.text + "</button>";
-    }
-    html += "</div>";
-    if (chosen) {
-      html += '<div class="reveal"><p class="rl caps">The rule as written</p><p>' + q.rule + "</p></div>";
-    }
-    html += "</div>";
-  }
-  var rank = scoreExam();
-  if (rank) {
-    var r = QUIZ.ranks[rank];
-    html += '<div class="verdict"><h3 class="titling">' + r.stamp1 + "</h3>" +
-      '<p class="stampline caps">' + r.stamp2 + "</p><p>" + r.body +
-      "</p><p>" + r.verdict + '</p><p class="hint">Examined and stamped. The paper is the same paper it was before.</p></div>';
-  }
-  body.innerHTML = html;
-
-  var btns = body.querySelectorAll(".opts button");
-  for (i = 0; i < btns.length; i += 1) {
-    btns[i].addEventListener("click", function (ev) {
-      var t = ev.currentTarget;
-      state.answers[t.getAttribute("data-q")] = t.getAttribute("data-o");
-      state.stamp = scoreExam();
-      setExamRow(state.stamp);
-      if (state.card) { renderScreen(); setUrl(); }
-      renderExam();
-    });
-  }
-}
-
-function boot() {
-  var field = document.getElementById("nameField");
-  document.getElementById("issueBtn").addEventListener("click", function () { issue(field.value); });
-  field.addEventListener("keydown", function (e) { if (e.key === "Enter") { issue(field.value); } });
-
-  document.getElementById("dlStd").addEventListener("click", function () { exportPng("wide"); });
-  document.getElementById("dlLarge").addEventListener("click", function () { exportPng("square"); });
-  document.getElementById("copyLink").addEventListener("click", function () {
-    var say = document.getElementById("said");
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(location.href).then(function () { say.textContent = "Link copied."; });
-    } else {
-      say.textContent = location.href;
-    }
-  });
-
-  var lf = document.getElementById("lookupField");
-  function doLookup() {
-    var v = lf.value.trim();
-    var hint = document.getElementById("lookupHint");
-    if (!v) { hint.textContent = "Nothing to look up."; return; }
-    var resolved = null;
-    if (v.indexOf("n=") >= 0 && v.indexOf("?") >= 0) {
-      try { resolved = new URLSearchParams(v.slice(v.indexOf("?") + 1)).get("n"); } catch (e) { resolved = null; }
-    }
-    if (!resolved && /^[0-9A-Za-z][0-9A-Za-z ]*$/.test(v) && v.replace(/\s/g, "").length >= 6) {
-      resolved = decodeSerial(v);
-      if (resolved === null) {
-        hint.textContent = "No entry matches that serial. Enter the name itself and the same card is issued again.";
-        return;
-      }
-    }
-    if (!resolved) { resolved = v; }
-    field.value = resolved;
-    if (issue(resolved)) {
-      hint.textContent = "Redrawn from the text on its face.";
-      document.getElementById("platebox").scrollIntoView({ block: "center" });
-    }
-  }
-  document.getElementById("lookupBtn").addEventListener("click", doLookup);
-  lf.addEventListener("keydown", function (e) { if (e.key === "Enter") { doLookup(); } });
-
-  document.getElementById("examStart").addEventListener("click", function () {
-    state.open = true;
-    this.disabled = true;
-    renderExam();
-  });
-
-  var q = new URLSearchParams(location.search);
-  var n = q.get("n");
-  var e = q.get("e");
-  /* E3: own property only. STAMPS["constructor"] is truthy off the prototype,
-     so ?e=constructor used to pass this guard and throw inside the stamp
-     drawing, leaving a crafted link that makes the office look broken. */
-  if (e && Object.prototype.hasOwnProperty.call(STAMPS, e)) { state.stamp = e; setExamRow(e); }
-  if (n) { field.value = n; issue(n); }
-}
-
-boot();
-</script>
-</body>
-</html>
