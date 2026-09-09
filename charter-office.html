@@ -2803,6 +2803,10 @@ var openExam, closeExam;
       row.className = word ? "v" : "v empty";
     }
     if (state.card) { renderScreen(); setUrl(); }
+    /* The composer writes a different tweet for every rank, so it has to be
+       told when the rank changes. Without this it keeps offering the text for
+       a card whose examination was never sat. */
+    if (window.refreshPost) { refreshPost(); }
     return rank;
   }
 
