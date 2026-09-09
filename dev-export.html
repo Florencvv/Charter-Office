@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#1C1712}canvas{display:block}</style></head>
+<body><canvas id="out"></canvas>
+<script src="quiz.js"></script><script src="engine.js"></script>
+<script>
+var q=new URLSearchParams(location.search);
+var card=deriveCard(q.get("n")||"beans"), mode=q.get("m")||"wide", L=LAYOUT[mode], back=3;
+var big=document.createElement("canvas"); big.width=L.W*back; big.height=L.H*back;
+drawPlate(big.getContext("2d"),card,mode,q.get("e")||null,back);
+var out=document.getElementById("out"); out.width=L.W; out.height=L.H;
+out.style.width=L.W+"px"; out.style.height=L.H+"px";
+var o=out.getContext("2d"); o.imageSmoothingEnabled=true; o.imageSmoothingQuality="high";
+o.drawImage(big,0,0,L.W,L.H);
+</script></body></html>
