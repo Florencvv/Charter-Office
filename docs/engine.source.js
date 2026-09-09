@@ -276,6 +276,10 @@ var BLUE = "#28536B";
 var BRONZE = "#7E6428";
 var COUNTER = "#16211D";
 
+/* The card is the only thing that survives a repost, so it carries the mark.
+   One string. Put a domain here the day there is one. */
+var OFFICE_MARK = "THE CHARTER OFFICE, BY @FLXRNC";
+
 var F_TITLE = 'Didot, "Bodoni MT", "Bodoni 72", "Playfair Display", Georgia, "Times New Roman", serif';
 var F_CAPS = 'Copperplate, "Copperplate Gothic Light", Optima, Candara, Georgia, serif';
 var F_TEXT = '"Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif';
@@ -787,6 +791,51 @@ function drawCorner(ctx, cx, cy, R, g, card, index) {
   ctx.restore();
 }
 
+function drawUnstamped(ctx, L) {
+  /* The space kept for a mark that was never applied. A printed form rules
+     the box whether or not the die ever comes down, so this belongs to the
+     plate and not to the strike: hairlines in INK_SOFT at low alpha, no
+     erosion, no skew, no multiply pass, no colour. Everything drawStamp does
+     to look struck is deliberately absent, because the drawing has to read as
+     an absence rather than as a faint stamp.
+
+     The panel is filled with paper rather than knocked out, so on the square
+     plate, where this reserve sits inside the engine turned compartment, the
+     lathe work still shows faintly through it and the caption can be read.
+     On the wide plate the ground is already paper and only the rules show. */
+  var cx = L.stampCx, cy = L.stampCy, R = L.stampR;
+  var pw = R * 1.78, ph = R * 0.78;
+  var px = cx - pw / 2, py = cy - ph / 2;
+
+  ctx.save();
+  ctx.textAlign = "center";
+
+  ctx.globalAlpha = 0.8;
+  ctx.fillStyle = PAPER;
+  ctx.fillRect(px, py, pw, ph);
+
+  ctx.strokeStyle = INK_SOFT;
+  ctx.globalAlpha = 0.5;
+  ctx.lineWidth = 0.8;
+  ctx.strokeRect(px, py, pw, ph);
+  ctx.globalAlpha = 0.24;
+  ctx.lineWidth = 0.6;
+  ctx.strokeRect(px + 4, py + 4, pw - 8, ph - 8);
+
+  /* The plain thing, in small caps, on two lines, sized off the reserve so
+     both layouts set it from the same rule. */
+  ctx.fillStyle = INK_SOFT;
+  ctx.globalAlpha = 0.82;
+  var maxW = pw - 24;
+  var track = R * 0.014;
+  var s1 = trackedFit(ctx, "THE EXAMINATION", F_CAPS, maxW, R * 0.108, 6, track);
+  tracked(ctx, "THE EXAMINATION", cx, cy - 5, track, "center");
+  trackedFit(ctx, "HAS NOT BEEN SAT", F_CAPS, maxW, R * 0.108, 6, track);
+  tracked(ctx, "HAS NOT BEEN SAT", cx, cy + s1 + 1, track, "center");
+
+  ctx.restore();
+}
+
 function drawSchedule(ctx, L, card, stampLabel) {
   var x = L.schedX, w = L.schedW, y = L.schedY;
   ctx.save();
@@ -809,8 +858,13 @@ function drawSchedule(ctx, L, card, stampLabel) {
     ctx.font = "9.5px " + F_CAPS;
     tracked(ctx, SCHEDULE[i][0], x, ry, 1.5, "left");
 
+    /* Row 7 answers either way. A rank when the examination has been sat, and
+       NOT SAT when it has not, set at the same weight as the other refusals in
+       the block because a form states its negatives plainly. The three dots
+       are left to row 8, which is the only row on this plate that is meant to
+       stay open, and the dots now say that and nothing else. */
     var val = SCHEDULE[i][1];
-    if (SCHEDULE[i][0] === "EXAMINATION" && stampLabel) { val = stampLabel; }
+    if (SCHEDULE[i][0] === "EXAMINATION") { val = stampLabel || "NOT SAT"; }
     ctx.textAlign = "right";
     if (val) {
       ctx.fillStyle = INK;
@@ -1054,14 +1108,16 @@ function drawPlate(ctx, card, mode, stampId, scale) {
   ctx.fillStyle = INK;
   ctx.font = "9px " + F_CAPS;
   ctx.textAlign = "center";
-  tracked(ctx, "UNOFFICIAL AND COMMEMORATIVE. NOT ONCHAIN. NOT AN ALLOWLIST. CONFERS NOTHING.",
-    W / 2, L.discY, 1.5, "center");
+  tracked(ctx, OFFICE_MARK + ".  UNOFFICIAL AND COMMEMORATIVE. NOT ONCHAIN, NOT AN ALLOWLIST, CONFERS NOTHING.",
+    W / 2, L.discY, 1.2, "center");
   ctx.textAlign = "left";
 
   drawCrossing(ctx, L, g);
 
   if (stampId && Object.prototype.hasOwnProperty.call(STAMPS, stampId)) {
     drawStamp(ctx, stampId, L, card);
+  } else {
+    drawUnstamped(ctx, L);
   }
 
   ctx.restore();
