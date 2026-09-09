@@ -1,4 +1,4 @@
-# CHIEF'S BRIEF — The Charter Office
+# CHIEF'S BRIEF , The Charter Office
 Internal. Read this before you write a word. Distributed to every agent.
 
 ## What exists in the world

@@ -64,10 +64,21 @@ of ten. Every redacted parameter is stated qualitatively and never numerically,
 including the ones the whitepaper itself restates in prose.
 
 **9. 5 tweet texts written, all lowercase, mentioning @flxrnc, no em dashes.**
-PASS. In tweets.txt, one per rank, 157 to 179 characters. No em dashes, no
-double hyphens, no exclamation marks. One change on E3's finding: the cashtag
-was removed, because it would have routed the posts and a certificate image into
-a feed that today contains only fake presales.
+PASS. In tweets.txt, one per rank, 173 to 189 characters, all lowercase, all
+mentioning @flxrnc. No em dashes, no double hyphens, no exclamation marks.
+
+E3 raised the tweets as a blocker and was half right. The cashtag is cut: X links
+cashtags, so five posts and a certificate image would have been delivered into
+the $STANDARD feed, which today holds nothing but fake presales. That is the
+highest risk placement this PNG could have had and it was self inflicted.
+
+E3 also asked to cut @flxrnc entirely, on the grounds that five explanations of
+someone else's mechanics, each signed by the person who did not write them,
+reads as farming. Chief kept the handle, because the brief requires it and a
+person naming themselves on a thing they made is attribution rather than a call
+to action. The real defect E3 found was the other half of that sentence: the
+protocol appeared in none of the fifteen drafts. The tails now name it, and the
+word unofficial sits in every one.
 
 **10. Not a single invented number on the site.**
 PASS. The only digits in visible page text are v0.1 and the handle @0xbeans. The
@@ -75,10 +86,24 @@ only digits struck on the plate are the derived charter number, the derived date
 the serial, 1 OF 10, 30 DAYS on the revocation stamp, and V0.1 in the credit.
 
 **11. The scam block and the no token statement are visible without scrolling far.**
-PASS. The heading sits about 330px down and the first column is fully visible on
-a 1366 by 768 window. It is distinguished with no border, no tint and no icon:
-it is the only two column block on the site, set one step larger than body copy,
-and placed above everything else.
+PASS, measured rather than asserted. The heading sits at 332px and the block
+closes at 966px, so on a 1366 by 768 window the heading and three of the four
+paragraphs in each column are visible on load, and the block finishes inside one
+wheel notch. The three statements that matter most lead the left column: not
+launched, no live token and no live NFT, the genesis mint has not happened, and
+any mint page or presale or contract existing today is fake.
+
+B1 designed the block to close around 630px. E3 then added five warnings about
+the things that actually take money off people, seed phrase requests, drainers
+behind a connect button, fake support in replies and direct messages, and
+address collection dressed as an eligibility check. Chief took the extra 336px:
+a warning nobody scrolls to is worth less than a warning that is there when they
+look, and everything above the fold is still the part that stops the transaction.
+
+It is distinguished with no border, no tint, no left bar and no icon. It is the
+only two column block on the site, set one step larger than body copy, and
+placed above everything else. Measure, size and position, which is how a printed
+standing notice at a counter is distinguished.
 
 **12. No em dash and no double hyphen anywhere in the project.**
 PASS, taken literally. Zero occurrences of two consecutive hyphens in the
@@ -118,5 +143,10 @@ motto is attributed to the whitepaper rather than worn. The examination teaches
 the mechanics and takes no position on them. And the licence hands the whole
 thing over with attribution waived.
 
-The one place it could have tipped was the tweets, and E3 was right about the
-cashtag. That is cut.
+The one place it could have tipped was the tweets. E3 called them the worst
+object in the package and it was right about why: five posts explaining his
+mechanics, signed by someone else, with neither him nor the protocol named in
+any of them, and a cashtag pointing the whole thing at a feed full of presale
+scams. The cashtag is gone and the tails now name the protocol and the word
+unofficial. That was the last thing standing between the package and the answer
+above.

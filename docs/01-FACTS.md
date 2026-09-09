@@ -17,7 +17,7 @@ Bankers hold charters, charters operate bank branches, branches earn issuance.
 ## 02 The six entities
 
 | Entity | What it is |
-|---|---|
+|-|-|
 | $STANDARD | ERC-20, 1B hard cap. Minted at exactly one moment, a withdrawal. Burned constantly. |
 | The pool | ETH to $STANDARD on a hooked Uniswap v4 pool. Every swap feeds the bank ETH. Net flow is measured here. |
 | The central bank | The issuing authority. Reads net flow, sets the issuance rate, routes fees. |
@@ -75,7 +75,7 @@ Two regimes, expansion (net flow positive) and contraction (net flow negative
 or zero):
 
 | | Expansion | Contraction |
-|---|---|---|
+|-|-|-|
 | Issuance | climbing if sustained | cut immediately |
 | Fee routing | expansion vault, hard reserve assets | contraction vault, buyback and burn |
 | Licenses | cost more, floor scales with the rate | cost less |
@@ -271,3 +271,20 @@ reassuring they sound.
 What the site does say, because it follows from the confirmed facts alone: any
 mint page, presale or "$STANDARD" contract that exists today is fake. That line
 is high on the page and is not softened.
+
+## Verified first party, added by Chief on E3's blocker 1
+
+The protocol's X account is @standard_rsv. This is not taken from anyone's
+recollection: the string https://x.com/standard_rsv appears in the protocol's own
+compiled site bundle at /assets/app-CLWsZEEp.js, which is what renders the footer
+link on standardreserve.xyz. Verified 2026-09-09. The site may therefore name it
+and link it.
+
+No author is named anywhere on standardreserve.xyz, in its whitepaper, or in its
+bundles. @0xbeans as the protocol author comes only from the owner's brief. A web
+search returned no source connecting the handle to the protocol either. E3 raised
+this as a blocker and Chief overruled it: the credit stays, because the publisher
+asserts it about his own subject, crediting an author is a courtesy that is
+trivially correctable if wrong, and dropping the author's name from a project
+that is explicitly a gift to that author would be the worse error. E3's dissent
+is recorded here and in README.md so the owner can act on it.
