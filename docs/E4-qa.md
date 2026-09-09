@@ -399,7 +399,7 @@ notice and three in the footnotes, none of which is fetched. Exercising every co
 issuing, looking up, exporting both PNGs, copying the link and sitting the examination,
 adds no request at all.
 
-From the file system: `file:///C:/Users/shelu/Desktop/standardbank/index.html?n=Ada%20Lovelace&e=sovereign`
+From the file system: `file:///.../index.html?n=Ada%20Lovelace&e=sovereign`
 loads, both scripts load, the plate renders charter 3478, matching the HTTP render
 exactly, the stamp is restored, and `history.replaceState` works. Zero console errors.
 

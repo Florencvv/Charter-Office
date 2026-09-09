@@ -434,7 +434,7 @@ Nothing else. The engraving, the copy, the quiz and the card are a gift.
 
 ## 7. LICENCE
 
-Written to `C:\Users\shelu\Desktop\standardbank\LICENSE`. The repository carried
+Written to `the repository root LICENSE`. The repository carried
 none, while the footer already claimed the code was MIT licensed, so the site
 was asserting a licence the project did not have.
 
