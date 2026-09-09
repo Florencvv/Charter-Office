@@ -961,7 +961,7 @@ var QUIZ = {
   questions: [
     {
       id: "buying-into-the-auction",
-      scene: "Your charter has one branch and a balance large enough to buy an expansion license. The auction opened high this morning and decays toward a floor across the day. Other bankers are reading the same board.",
+      scene: "Your charter has one branch and a balance large enough to buy an expansion license. The price opened high and decays across the day, and most of the day's supply is still on the board with hours to run.",
       options: [
         { id: "a", text: "Buy at the open and pay the premium for certainty.", key: false, score: { expansion: 2, patience: 0, exit: 0, dormancy: 0 } },
         { id: "b", text: "Wait for the afternoon price and risk the licenses selling out.", key: true, score: { expansion: 3, patience: 1, exit: 0, dormancy: 0 } },
@@ -977,10 +977,10 @@ var QUIZ = {
       options: [
         { id: "a", text: "Retire a branch now and take part of the balance out.", key: false, score: { expansion: 0, patience: 0, exit: 3, dormancy: 0 } },
         { id: "b", text: "Wait for net flow to turn positive before spending anything.", key: false, score: { expansion: 0, patience: 3, exit: 0, dormancy: 0 } },
-        { id: "c", text: "Buy licenses now while they are cheap and add branches.", key: true, score: { expansion: 3, patience: 2, exit: 0, dormancy: 0 } },
+        { id: "c", text: "Stay in position, and add branches while licenses are at their cheapest.", key: true, score: { expansion: 3, patience: 2, exit: 0, dormancy: 0 } },
         { id: "d", text: "Do nothing and let the balance accrue at the cut rate.", key: false, score: { expansion: 0, patience: 0, exit: 0, dormancy: 3 } }
       ],
-      rule: "Contraction is net flow negative or zero. Issuance is cut immediately and fee routing flips to the contraction vault for buyback and burn. Repricing is asymmetric: in downturns the price decays to the floor faster, so expansion is cheapest during contractions. The bank turns defensive faster than it turns generous.",
+      rule: "Contraction is net flow negative or zero. Issuance is cut immediately and fee routing flips to the contraction vault for buyback and burn. Repricing is asymmetric: in downturns the price decays to the floor faster, so expansion is cheapest during contractions. Staying is the move a contraction rewards, and it is the moment adding branches costs least. The bank turns defensive faster than it turns generous.",
       source: "05 Monetary policy, the two regime table and the asymmetry quote. 08 Two intentional consequences, second bullet."
     },
     {
@@ -1827,13 +1827,14 @@ function drawStub(ctx, L, card) {
 
   label("CHARTER No.", top + 24);
   ctx.fillStyle = INK;
-  ctx.font = "21px " + F_TITLE;
+  var stubLift = figureLift(ctx, F_TITLE, 21);
+  ctx.font = (21 * stubLift) + "px " + F_TITLE;
   ctx.fillText(card.charter, x, top + 48);
   rule(top + 60);
 
   label("DATE OF ISSUE", top + 78);
   ctx.fillStyle = INK;
-  ctx.font = "11px " + F_TITLE;
+  ctx.font = (11 * figureLift(ctx, F_TITLE, 11)) + "px " + F_TITLE;
   ctx.fillText(card.day + " " + card.month.slice(0, 3), x, top + 96);
   ctx.fillText(card.year, x, top + 112);
   rule(top + 124);
@@ -2123,6 +2124,60 @@ function drawBookingLayer(ctx, L, card) {
   ctx.restore();
 }
 
+function figureLift(ctx, font, size) {
+  ctx.font = size + "px " + font;
+  var cap = ctx.measureText("H").actualBoundingBoxAscent;
+  var fig = ctx.measureText("0").actualBoundingBoxAscent;
+  if (!cap || !fig || fig >= cap) { return 1; }
+  return Math.min(cap / fig, 1.45);
+}
+
+function titleWidth(ctx, text, font, size, lift) {
+  var w = 0, i;
+  for (i = 0; i < text.length; i += 1) {
+    ctx.font = (/[0-9]/.test(text[i]) ? size * lift : size) + "px " + font;
+    w += ctx.measureText(text[i]).width;
+  }
+  return w;
+}
+
+function fitTitle(ctx, text, font, maxWidth, startSize, minSize) {
+  var size = startSize, lift;
+  while (size > minSize) {
+    lift = figureLift(ctx, font, size);
+    if (titleWidth(ctx, text, font, size, lift) <= maxWidth) { break; }
+    size -= 1;
+  }
+  return { size: size, lift: figureLift(ctx, font, size) };
+}
+
+function drawTitleCentred(ctx, text, cx, y, font, size, lift) {
+  var x = cx - titleWidth(ctx, text, font, size, lift) / 2, i, ch, w;
+  for (i = 0; i < text.length; i += 1) {
+    ch = text[i];
+    var digit = /[0-9]/.test(ch);
+    ctx.font = (digit ? size * lift : size) + "px " + font;
+    ctx.fillText(ch, x, y);
+    w = ctx.measureText(ch).width;
+    /* A didone zero at cap height is the same oval as its O, which turns a
+       handle like 0xbeans into Oxbeans. Security printing answered this with a
+       slashed zero long before anyone typed one, so the plate does the same. */
+    if (ch === "0") {
+      var h = size * lift * 0.70;
+      ctx.save();
+      ctx.strokeStyle = ctx.fillStyle;
+      ctx.lineWidth = Math.max(1, size * lift * 0.045);
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(x + w * 0.74, y - h * 0.86);
+      ctx.lineTo(x + w * 0.26, y - h * 0.12);
+      ctx.stroke();
+      ctx.restore();
+    }
+    x += w;
+  }
+}
+
 function drawPlate(ctx, card, mode, stampId, scale) {
   var L = LAYOUT[mode];
   var g = card.g;
@@ -2198,12 +2253,10 @@ function drawPlate(ctx, card, mode, stampId, scale) {
   ctx.fillText(card.house, L.colCx, L.houseY);
   ctx.textAlign = "left";
 
-  var ts = fitFont(ctx, card.subject, F_TITLE, L.nameMax, mode === "square" ? 84 : 74, 18);
+  var fit = fitTitle(ctx, card.subject, F_TITLE, L.nameMax, mode === "square" ? 84 : 74, 18);
   ctx.fillStyle = INK;
-  ctx.textAlign = "center";
-  ctx.font = ts + "px " + F_TITLE;
-  ctx.fillText(card.subject, L.colCx, L.nameY);
   ctx.textAlign = "left";
+  drawTitleCentred(ctx, card.subject, L.colCx, L.nameY, F_TITLE, fit.size, fit.lift);
 
   ctx.save();
   ctx.strokeStyle = INK;
