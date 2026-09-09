@@ -217,10 +217,10 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
-.heroWrap { position: relative; width: 1176px; height: 300px; margin: 0 auto 56px; }
-.heroCanvas { display: block; width: 1176px; height: 300px; }
+.heroWrap { position: relative; width: 1176px; height: 340px; margin: 0 auto 56px; }
+.heroCanvas { display: block; width: 1176px; height: 340px; }
 
-.heroPlate { position: absolute; left: 52px; top: 74px; width: 660px; }
+.heroPlate { position: absolute; left: 52px; top: 62px; width: 700px; }
 .heroName {
   font-family: Didot, "Didot LT Std", "Bodoni 72", "Bodoni MT", "Hoefler Text", Constantia, Georgia, "Times New Roman", serif;
   font-weight: 400;
@@ -229,7 +229,15 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
   margin: 0 0 14px;
   color: #F0EBDF;
 }
-.heroLine { font-size: 19px; line-height: 30px; margin: 0; color: #D9D3C7; }
+.heroLine { font-size: 19px; line-height: 30px; margin: 0 0 24px; color: #D9D3C7; width: 620px; }
+.heroDesk { display: flex; gap: 12px; width: 620px; }
+.heroDesk input[type=text] {
+  flex: 1; min-width: 0; border: 0; border-bottom: 2px solid #A63A1C; border-radius: 0;
+  padding: 14px 16px; background: #E2DCC8; color: #241C14;
+  font: 17px/24px "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+}
+.heroDesk input[type=text]::placeholder { color: #61594E; opacity: 1; }
+.heroDesk button.paper { flex: none; padding: 14px 24px; }
 
 .heroSig {
   position: absolute;
@@ -532,6 +540,10 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
   <div class="heroPlate">
     <h1 class="heroName titling">The Charter Office</h1>
     <p class="heroLine">Type a name and this office engraves you a commemorative bank charter for The Standard Reserve, a protocol that has not opened yet.</p>
+    <div class="heroDesk">
+      <input type="text" id="heroField" maxlength="48" placeholder="Any name, handle, or address" autocomplete="off" spellcheck="false" aria-label="Name to be engraved">
+      <button class="paper" id="heroGo">Engrave it</button>
+    </div>
   </div>
   <p class="heroSig caps">built by <a href="https://x.com/flxrnc" rel="noopener">@flxrnc</a></p>
 </div>
@@ -914,6 +926,16 @@ function boot() {
   document.getElementById("issueBtn").addEventListener("click", function () { issue(field.value); });
   field.addEventListener("keydown", function (e) { if (e.key === "Enter") { issue(field.value); } });
 
+  var hf = document.getElementById("heroField");
+  function heroIssue() {
+    field.value = hf.value;
+    if (issue(hf.value)) {
+      document.getElementById("platebox").scrollIntoView({ block: "center" });
+    }
+  }
+  document.getElementById("heroGo").addEventListener("click", heroIssue);
+  hf.addEventListener("keydown", function (e) { if (e.key === "Enter") { heroIssue(); } });
+
   function wireExport(id, mode) {
     var btn = document.getElementById(id);
     btn.addEventListener("click", function () {
@@ -986,7 +1008,7 @@ function boot() {
   var n = q.get("n");
   var e = q.get("e");
   if (e && Object.prototype.hasOwnProperty.call(STAMPS, e)) { state.stamp = e; setExamRow(e); }
-  if (n) { field.value = n; issue(n); }
+  if (n) { field.value = n; document.getElementById("heroField").value = n; issue(n); }
   if (window.refreshPost) { refreshPost(); }
 }
 
@@ -1186,7 +1208,7 @@ function heroScrim(ctx, W, H) {
 }
 
 function drawHero(canvas) {
-  var W = 1176, H = 300, S = 2;
+  var W = 1176, H = 340, S = 2;
   var i;
   canvas.width = W * S;
   canvas.height = H * S;
@@ -1203,15 +1225,15 @@ function drawHero(canvas) {
   /* Four ranks of building, the far rank darkest, each one in front of it a
      shade lighter and standing on a lower base line. */
   var layers = [
-    { base: 258, hMin: 62, hMax: 146, wMin: 26, wMax: 66, fill: "#1E1C19", dark: "#141310" },
-    { base: 272, hMin: 66, hMax: 172, wMin: 32, wMax: 84, fill: "#2E2B26", dark: "#201E1A" },
-    { base: 288, hMin: 64, hMax: 192, wMin: 40, wMax: 102, fill: "#433E35", dark: "#2E2A24" },
-    { base: 304, hMin: 58, hMax: 208, wMin: 52, wMax: 128, fill: "#5A5348", dark: "#3D372F" }
+    { base: 298, hMin: 62, hMax: 146, wMin: 26, wMax: 66, fill: "#1E1C19", dark: "#141310" },
+    { base: 312, hMin: 66, hMax: 172, wMin: 32, wMax: 84, fill: "#2E2B26", dark: "#201E1A" },
+    { base: 328, hMin: 64, hMax: 192, wMin: 40, wMax: 102, fill: "#433E35", dark: "#2E2A24" },
+    { base: 344, hMin: 58, hMax: 208, wMin: 52, wMax: 128, fill: "#5A5348", dark: "#3D372F" }
   ];
 
   heroGround(ctx, W, H);
   for (i = 0; i < layers.length; i += 1) {
-    if (i === 2) { heroHaze(ctx, W, H, 250); }
+    if (i === 2) { heroHaze(ctx, W, H, 290); }
     heroSkyline(ctx, rng, layers[i], W, H, i === layers.length - 1);
   }
   heroScrim(ctx, W, H);
