@@ -18,13 +18,22 @@ from disk with a double click, and works with the network switched off.
 
 ## What it does
 
-**Window one, issuance.** Type any name or wallet address and the certificate is
-engraved immediately. No wallet, no signup, no conditions, no quiz. Downloads as
-PNG at 1200 by 675 and 1080 by 1080.
+Three windows, in the order a visitor meets them.
 
-**Window two, examination.** Seven optional questions about protocol mechanics.
-The examination never gates the paper. It stamps the certificate that was
-already issued, and the reveal after each answer is the point of the site.
+**One, issuance.** Type any name or wallet address in the field in the banner and
+the certificate is engraved immediately. No wallet, no signup, no conditions, no
+quiz. Downloads as PNG at 1200 by 675 and 1080 by 1080.
+
+**Two, examination.** Seven optional questions, in a modal over the page, one
+question at a time. After each answer the protocol's actual rule is revealed,
+which is the point of the site. The examination never gates the paper: it stamps
+the certificate that was already issued. A card whose examination was not sat
+says so on its own face, in the schedule row and in the empty ruled reserve.
+
+**Three, post.** A composer that writes the tweet for whichever stamp you earned,
+counts the characters, and opens X with the text already in it. A link cannot
+carry a picture, so the card is downloaded and attached by hand, and the page
+says that rather than pretending otherwise.
 
 ## How it holds together
 
@@ -78,6 +87,13 @@ editing them changes nothing.
 `docs/01-FACTS.md` is the fact ledger. Every claim on the site traces to it, and
 it records which whitepaper parameters are redacted and therefore never appear
 here in any form, including in words rather than digits.
+
+## The five stamps
+
+Cleared for expansion, standing patient capital, provisional subject to exit
+pricing, revocation notice, and sovereign. The revocation overstamp is the
+loudest object on the site and the sovereign seal is the quietest, because a
+blind emboss carries no ink at all.
 
 ## Two things the owner should decide
 
