@@ -79,7 +79,7 @@ button.paper {
   color: #241C14;
   background: #E2DCC8;
   border: 0;
-  border-top: 2px solid #A63A1C;
+  border-top: 2px solid #4A4034;
   padding: 13px 22px;
 }
 button.quiet {
@@ -105,7 +105,7 @@ footer li { margin: 0 0 4px; }
 footer p { width: 660px; margin: 0 0 10px; }
 footer a { border-bottom-color: #4A4034; }
 footer a:hover { border-bottom-color: #A89C89; }
-footer p.last { border-left: 2px solid #A63A1C; padding: 0 0 0 12px; margin: 16px 0 0; color: #D9D3C7; }
+footer p.last { border-left: 2px solid #A89C89; padding: 0 0 0 12px; margin: 16px 0 0; color: #D9D3C7; }
 
 .noscript { width: 660px; border-top: 1px solid #4A4034; border-bottom: 1px solid #4A4034; padding: 14px 0; margin: 28px 0 0; }
 
@@ -124,9 +124,9 @@ footer p.last { border-left: 2px solid #A63A1C; padding: 0 0 0 12px; margin: 16p
   padding: 13px 0 12px;
 }
 .navInner { width: 1176px; margin: 0 auto; display: flex; align-items: center; gap: 56px; }
-.navMark { font-size: 11px; line-height: 18px; color: #D9D3C7; white-space: nowrap; margin: 0; }
-.navMark span { color: #A63A1C; margin-left: 14px; }
-.navSet { display: flex; gap: 28px; flex: 1; }
+.navMark { font-size: 11px; line-height: 18px; color: #F0EBDF; white-space: nowrap; margin: 0; font-weight: 700; }
+.navMark span { color: #A89C89; margin-left: 14px; font-weight: 400; }
+.navSet { display: flex; gap: 32px; flex: 1; justify-content: center; }
 .navLink {
   font-size: 11px;
   line-height: 18px;
@@ -137,8 +137,9 @@ footer p.last { border-left: 2px solid #A63A1C; padding: 0 0 0 12px; margin: 16p
   padding: 0 0 3px;
   cursor: pointer;
 }
-a.navLink:hover, button.navLink:hover { color: #D9D3C7; border-bottom-color: #A89C89; }
-.navLink.navOn { color: #D9D3C7; border-bottom-color: #A63A1C; }
+.navLink { font-weight: 700; letter-spacing: 0.2em; }
+a.navLink:hover, button.navLink:hover { color: #F0EBDF; border-bottom-color: #D9D3C7; }
+.navLink.navOn { color: #F0EBDF; border-bottom-color: #D9D3C7; }
 .navMe { font-size: 11px; line-height: 18px; color: #A89C89; white-space: nowrap; }
 .navMe:hover { color: #D9D3C7; }
 .navSkip {
@@ -158,7 +159,7 @@ a.navLink:hover, button.navLink:hover { color: #D9D3C7; border-bottom-color: #A8
 
 .a2steps { display: flex; gap: 36px; margin: 0; }
 .a2step { flex: 1; display: flex; gap: 14px; border-top: 2px solid #4A4034; padding: 14px 0 0; }
-.a2step .a2n { flex: none; width: 24px; font-size: 27px; line-height: 27px; color: #A63A1C; }
+.a2step .a2n { flex: none; width: 30px; font-size: 32px; line-height: 30px; color: #E2DCC8; }
 .a2step .a2body { flex: 1; }
 .a2step .a2lab { font-size: 11px; line-height: 18px; color: #E2DCC8; margin: 0 0 6px; }
 .a2step .a2say { font-size: 15px; line-height: 23px; color: #A89C89; margin: 0; }
@@ -166,7 +167,7 @@ a.navLink:hover, button.navLink:hover { color: #D9D3C7; border-bottom-color: #A8
 .a2head { border-top: 1px solid #4A4034; padding: 16px 0 0; margin: 0 0 24px; }
 .a2head .a2kick { font-size: 11px; line-height: 18px; color: #A89C89; margin: 0 0 10px; }
 .a2head h2 { font-size: 26px; line-height: 32px; margin: 0 0 12px; color: #F0EBDF; }
-.a2head .a2under { width: 56px; height: 2px; background: #A63A1C; }
+.a2head .a2under { width: 84px; height: 3px; border-top: 1px solid #A89C89; border-bottom: 1px solid #4A4034; background: none; }
 
 .a2stage { margin: 28px 0 0; background: #241C14; border: 1px solid #4A4034; padding: 14px; }
 .a2mat { border: 1px solid #4A4034; background: #1C1712; line-height: 0; }
@@ -180,9 +181,9 @@ a.navLink:hover, button.navLink:hover { color: #D9D3C7; border-bottom-color: #A8
 
 button.paper { border-bottom: 2px solid #4A4034; }
 button.paper:hover:enabled { background: #F0EBDF; }
-button.paper:active:enabled { background: #D9D3C7; border-top-color: #4A4034; border-bottom-color: #A63A1C; }
+button.paper:active:enabled { background: #D9D3C7; border-top-color: #A89C89; border-bottom-color: #4A4034; }
 button.quiet:hover:enabled { background: #4A4034; border-color: #D9D3C7; }
-button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color: #F0EBDF; }
+button.quiet:active:enabled { background: #241C14; border-color: #D9D3C7; color: #F0EBDF; }
 .deskrow input[type=text] { border-bottom: 2px solid #4A4034; }
 .deskrow input[type=text]:hover { background: #F0EBDF; }
 
@@ -233,7 +234,7 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
 .heroLine { font-size: 19px; line-height: 30px; margin: 0 0 24px; color: #D9D3C7; width: 620px; }
 .heroDesk { display: flex; gap: 12px; width: 620px; }
 .heroDesk input[type=text] {
-  flex: 1; min-width: 0; border: 0; border-bottom: 2px solid #A63A1C; border-radius: 0;
+  flex: 1; min-width: 0; border: 0; border-bottom: 2px solid #4A4034; border-radius: 0;
   padding: 14px 16px; background: #E2DCC8; color: #241C14;
   font: 17px/24px "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
 }
@@ -352,7 +353,7 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
 .exMarks { display: flex; gap: 5px; align-items: center; }
 .exMark { display: block; width: 14px; height: 2px; background: #4A4034; }
 .exMark.exOn { background: #A89C89; }
-.exMark.exNow { background: #A63A1C; }
+.exMark.exNow { background: #F0EBDF; }
 
 .exClose {
   margin-left: auto;
@@ -387,7 +388,7 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
   padding: 10px 16px;
 }
 .exWrap button.exOpt:hover { background: #241C14; border-left-color: #F0EBDF; }
-.exWrap button.exOpt.exChosen { color: #F0EBDF; background: #241C14; border-left-color: #A63A1C; }
+.exWrap button.exOpt.exChosen { color: #F0EBDF; background: #241C14; border-left-color: #F0EBDF; }
 .exWrap button.exOpt.exOther { color: #A89C89; }
 
 .exRule { border-top: 1px solid #4A4034; margin: 24px 0 0; padding: 14px 0 0; }
@@ -428,7 +429,7 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
   color: #241C14;
   background: #E2DCC8;
   border: 0;
-  border-top: 2px solid #A63A1C;
+  border-top: 2px solid #4A4034;
   padding: 12px 20px;
 }
 .exWrap button:disabled {
@@ -501,7 +502,7 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
   color: #241C14;
   background: #E2DCC8;
   border: 0;
-  border-top: 2px solid #A63A1C;
+  border-top: 2px solid #4A4034;
   border-bottom: 0;
   border-radius: 0;
   padding: 13px 22px;
@@ -517,6 +518,64 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
 
 .postQuiet { width: 660px; font-size: 17px; line-height: 28px; color: #A89C89; margin: 0; }
 .postSaid { min-height: 22px; }
+
+/* Ornament pass. Printed form furniture only: doubled rules, hairline panels,
+   ledger ruling. No colour, no shadows, no radii, no motion. */
+
+/* Section rules stop being one plain line: thick over thin, as a form prints. */
+hr.score { height: 0; background: none; padding: 3px 0 0; border-top: 2px solid #4A4034; border-bottom: 1px solid #4A4034; }
+
+/* Rail labels and section kickers take a compositor's tick. */
+.railLabel::before, .a2head .a2kick::before {
+  content: ""; display: inline-block; width: 1px; height: 9px;
+  background: #A89C89; margin: 0 9px 0 0; vertical-align: 0;
+}
+
+/* Every heading block opens on the same doubled rule. */
+.a2head { border-top-width: 2px; padding-top: 3px; }
+.a2head::before { content: ""; display: block; border-top: 1px solid #4A4034; margin: 0 0 16px; }
+
+/* The three steps set as a printed panel: numeral in the titling face, ruled foot. */
+.a2step { border-bottom: 1px solid #4A4034; padding-bottom: 14px; }
+.a2step .a2n {
+  width: 34px;
+  font-family: Didot, "Bodoni MT", "Hoefler Text", Constantia, Georgia, serif;
+  font-size: 38px; line-height: 34px; color: #A89C89;
+}
+
+/* Cardlets get an inset hairline frame, open at the corners. */
+.cardlet { position: relative; }
+.cardlet::before, .cardlet::after { content: ""; position: absolute; pointer-events: none; border: 0 solid #4A4034; }
+.cardlet::before { top: 5px; bottom: 5px; left: 9px; right: 9px; border-top-width: 1px; border-bottom-width: 1px; }
+.cardlet::after { top: 9px; bottom: 9px; left: 5px; right: 5px; border-left-width: 1px; border-right-width: 1px; }
+.cardlet.a2paper::before, .cardlet.a2paper::after { border-color: #A89C89; }
+
+/* Ledger ground at the body leading, kept at the edge of visibility. */
+.cardlet, .noscript {
+  background-image: repeating-linear-gradient(to bottom, rgba(217, 211, 199, 0.04) 0 1px, transparent 1px 24px);
+}
+.cardlet.a2paper { background-image: repeating-linear-gradient(to bottom, rgba(36, 28, 20, 0.06) 0 1px, transparent 1px 24px); }
+
+/* Buttons printed rather than drawn: a hairline set inside the edge. */
+button.paper, button.quiet, .postGo { position: relative; }
+button.paper::before, button.quiet::before, .postGo::before {
+  content: ""; position: absolute; top: 3px; right: 3px; bottom: 3px; left: 3px;
+  border: 1px solid #A89C89; pointer-events: none;
+}
+button.quiet::before, button:disabled::before, .postGo.postOff::before { border-color: #4A4034; }
+
+/* Footnotes close the sheet on a doubled ledger rule. */
+footer { border-top: 2px solid #4A4034; padding-top: 3px; }
+footer .cols { border-top: 1px solid #4A4034; padding-top: 20px; }
+
+/* The one long paragraph reads as the lead. */
+.lede { color: #E2DCC8; }
+
+/* The last red rules and marks off the certificate, retired to ledger colour. */
+.postGo, .exPaper { border-top-color: #4A4034; }
+.exMark.exNow { background: #D9D3C7; }
+.exWrap button.exOpt.exChosen { border-left-color: #F0EBDF; }
+.postLong { color: #E2DCC8; }
 
 /* The brief said desktop only, and that was right for a counter you stand at.
    It stops being right the moment the point is a link on X, where most of the
@@ -564,6 +623,13 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
   footer ul, footer p { width: auto; }
   .arrowCue { display: none; }
   .exPanel { width: auto; max-width: 100%; margin: 0 12px; }
+}
+.bankersWrap { position: relative; width: 1176px; height: 200px; margin: 56px auto 28px; }
+.bankersCanvas { display: block; width: 1176px; height: 200px; }
+
+@media (max-width: 1287px) {
+  .bankersWrap { width: auto; height: auto; margin: 36px 0 20px; }
+  .bankersCanvas { width: 100%; height: 120px; object-fit: cover; }
 }
 </style>
 </head>
@@ -663,16 +729,12 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
       <h2 class="titling">Issuance</h2>
       <div class="a2under"></div>
     </div>
-    <p class="measure">Type any name, handle, or wallet address. Nothing is checked, nothing is sent, nothing is kept.</p>
+    <p class="measure">This is the paper the banner cut for you. Nothing was checked, nothing was sent, nothing was kept. Type a different name up there to cut another.</p>
 
     <noscript>
       <div class="noscript">The engraving is drawn in your browser. With JavaScript switched off, this office cannot cut the plate and no certificate can be issued.</div>
     </noscript>
 
-    <div class="deskrow">
-      <input type="text" id="nameField" maxlength="48" placeholder="Any name, handle, or address" autocomplete="off" spellcheck="false" aria-label="Name to be entered">
-      <button class="paper" id="issueBtn">Issue the certificate</button>
-    </div>
     <p class="hint" id="issueHint">The plate is cut on this machine. Nothing leaves it.</p>
 
     <div class="a2stage" id="platebox" hidden>
@@ -799,6 +861,10 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
 
 <hr class="score">
 
+<div class="bankersWrap">
+  <canvas id="bankersCanvas" class="bankersCanvas" width="2352" height="400" role="img" aria-label="An engraved vignette of clerks and bankers standing behind a long counter"></canvas>
+</div>
+
 <div class="block">
   <div class="rail"><p class="railLabel caps">Footnotes</p></div>
   <div class="main">
@@ -812,7 +878,6 @@ button.quiet:active:enabled { background: #241C14; border-color: #A63A1C; color:
         <ul>
           <li>An unofficial office, published by <a href="https://x.com/flxrnc">@flxrnc</a>.</li>
           <li>The protocol and the whitepaper are the work of <a href="https://x.com/0xbeans">@0xbeans</a>.</li>
-          <li>The code for this office is MIT licensed.</li>
         </ul>
       </div>
       <p class="last">Nothing is live. No token, no NFT, no mint. Any $STANDARD sale you see today is fake.</p>
@@ -2502,13 +2567,8 @@ function setExamRow(rank) {
 }
 
 function boot() {
-  var field = document.getElementById("nameField");
-  document.getElementById("issueBtn").addEventListener("click", function () { issue(field.value); });
-  field.addEventListener("keydown", function (e) { if (e.key === "Enter") { issue(field.value); } });
-
   var hf = document.getElementById("heroField");
   function heroIssue() {
-    field.value = hf.value;
     if (issue(hf.value)) {
       document.getElementById("platebox").scrollIntoView({ block: "center" });
     }
@@ -2570,7 +2630,7 @@ function boot() {
       }
       resolved = v;
     }
-    field.value = resolved;
+    hf.value = resolved;
     if (issue(resolved)) {
       hint.textContent = fromSerial ? "Redrawn from the text on its face." : "Issued from the text as typed.";
       document.getElementById("platebox").scrollIntoView({ block: "center" });
@@ -2604,8 +2664,7 @@ function boot() {
   var e = q.get("e");
   if (e && Object.prototype.hasOwnProperty.call(STAMPS, e)) { state.stamp = e; setExamRow(e); }
   if (n) {
-    field.value = n;
-    document.getElementById("heroField").value = n;
+    hf.value = n;
     issue(n);
   } else {
     showSpecimen();
@@ -3131,17 +3190,24 @@ var openExam, closeExam;
      It does not. */
 
   var POST_CAP = 280;
-  var POST_TAIL = " unofficial paper from the charter office, by @flxrnc";
+  var BREAK = String.fromCharCode(10) + String.fromCharCode(10);
+  var POST_TAIL = "unofficial paper from the charter office, by @flxrnc";
 
   var POST_BODY = {
-    expansion: "got [ cleared for expansion ], every answer i gave was buy the cheap license and burn the token for it.",
-    patient: "got [ standing / patient capital ], a bet on other people leaving, and the card says out loud it pays nothing in a quiet market.",
-    provisional: "got [ provisional / subject to exit pricing ], a crooked blue stamp saying my rate depends on how many other people are at the door.",
-    revocation: "they stamped [ revocation notice ] across the whole of my paper in red, reportable after 30 days, and the remedy is free.",
-    sovereign: "[ sovereign / examined and found correct ], no ink on it anywhere, you have to tilt the sheet to see that anything happened."
+    expansion: ["got [ cleared for expansion ] at the charter office",
+      "every answer i gave was buy the cheap license and burn the token for it"],
+    patient: ["got [ standing / patient capital ] at the charter office",
+      "a bet on other people leaving, and the card says out loud it pays nothing in a quiet market"],
+    provisional: ["got [ provisional / subject to exit pricing ]",
+      "a crooked blue stamp saying my rate depends on how many other people are at the door"],
+    revocation: ["they stamped [ revocation notice ] across the whole of my paper in red",
+      "reportable after 30 days, and the remedy is free"],
+    sovereign: ["[ sovereign / examined and found correct ]",
+      "no ink on it anywhere, you have to tilt the sheet to see that anything happened"]
   };
 
-  var POST_UNSAT = "i took the paper and walked out before the examination, so the sheet is clean and there is no stamp on it to read.";
+  var POST_UNSAT = ["i took the paper and walked out before the examination",
+    "so the sheet is clean and there is no stamp on it to read"];
 
   var wired = false;
   var lastMade = "";
@@ -3156,7 +3222,8 @@ var openExam, closeExam;
   }
 
   function makeText(stampId) {
-    return (stampId ? POST_BODY[stampId] : POST_UNSAT) + POST_TAIL;
+    var lines = stampId ? POST_BODY[stampId] : POST_UNSAT;
+    return lines[0] + BREAK + lines[1] + BREAK + POST_TAIL;
   }
 
   function countOf(s) { return Array.from(s).length; }
@@ -3275,6 +3342,377 @@ var openExam, closeExam;
   window.refreshPost.init = initPost;
 })();
 
+
+/* ========================================================== bankers vignette
+   The counting hall from the customer side, cut from one fixed seed. Same
+   technique as the banner: layered fills far to near, dark to light, then the
+   burin work clipped to the near layer. No clock, no Math.random. */
+
+var BANK_SEED = "the counting hall, six clerks, plate two";
+
+function bankRng(seed) {
+  var s = xmur3(seed);
+  return sfc32(s(), s(), s(), s());
+}
+
+function bankSpan(rng, lo, hi) { return lo + (hi - lo) * rng(); }
+
+function bankInt(rng, lo, hi) { return Math.floor(bankSpan(rng, lo, hi + 1)); }
+
+function bankGround(ctx, W, H) {
+  var grd = ctx.createLinearGradient(0, 0, 0, H);
+  grd.addColorStop(0, "#100D09");
+  grd.addColorStop(0.5, "#14100C");
+  grd.addColorStop(1, "#191410");
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, W, H);
+}
+
+/* Burin work. One diagonal set for the shadow, one flat set for the tooth of
+   the plate. Called inside a clip, so it never floods the whole plate. */
+
+function bankHatch(ctx, W, H, pitch, alpha) {
+  var d, y;
+  ctx.lineWidth = 0.6;
+  ctx.strokeStyle = "rgba(16, 12, 8, " + alpha + ")";
+  ctx.beginPath();
+  for (d = -H; d < W + H; d += pitch) {
+    ctx.moveTo(d, H);
+    ctx.lineTo(d + H, 0);
+  }
+  ctx.stroke();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = "rgba(216, 208, 190, 0.055)";
+  ctx.beginPath();
+  for (y = 0; y < H; y += 5) {
+    ctx.moveTo(0, y + 0.5);
+    ctx.lineTo(W, y + 0.5);
+  }
+  ctx.stroke();
+}
+
+/* The back wall: a run of arched teller openings, each one a hole of shadow
+   with a grille of bars across it. Nothing is stroked; the wall is filled
+   once and the openings are laid inside its clip. */
+
+function bankArcade(ctx, rng, W, top, base) {
+  var bays = 9;
+  var pitch = W / bays;
+  var i, j, cx, w, r, aTop, bars, bp;
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(0, top, W, base - top);
+  ctx.fillStyle = "#1E1C19";
+  ctx.fill();
+  ctx.clip();
+
+  ctx.fillStyle = "#141310";
+  for (i = 0; i < bays; i += 1) {
+    cx = pitch * i + pitch / 2 + bankSpan(rng, -3, 3);
+    w = pitch * bankSpan(rng, 0.44, 0.56);
+    r = w / 2;
+    aTop = top + bankSpan(rng, 22, 34);
+    ctx.beginPath();
+    ctx.moveTo(cx - r, base);
+    ctx.lineTo(cx - r, aTop + r);
+    ctx.arc(cx, aTop + r, r, Math.PI, Math.PI * 2);
+    ctx.lineTo(cx + r, base);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  ctx.fillStyle = "rgba(90, 83, 72, 0.34)";
+  for (i = 0; i < bays; i += 1) {
+    cx = pitch * i + pitch / 2;
+    w = pitch * 0.5;
+    bars = 5;
+    bp = w / bars;
+    for (j = 1; j < bars; j += 1) {
+      ctx.fillRect(cx - w / 2 + bp * j, top + 34, 1.1, base - top - 34);
+    }
+  }
+
+  ctx.fillStyle = "rgba(67, 62, 53, 0.5)";
+  ctx.fillRect(0, top + 4, W, 1.6);
+  ctx.fillRect(0, top + 9, W, 1);
+  ctx.restore();
+}
+
+/* One figure, head and shoulders only. Lean turns the head and rolls the
+   shoulders; hat is 0 for bareheaded, 1 for a top hat, 2 for a bowler. The
+   subpaths go onto the accumulated layer path, the shadow rectangles onto
+   det, exactly as the banner does it. */
+
+function bankFigure(ctx, rng, cx, base, h, s, hat, lean, det) {
+  var rx = 8.6 * s;
+  var ry = 10.8 * s;
+  var headTop = base - h;
+  var hcy = headTop + ry;
+  var hx = cx + lean;
+  var sw = 22 * s;
+  var shTop = hcy + ry + 1.5 * s;
+  var crown, brim;
+
+  ctx.moveTo(cx - sw, base + 14);
+  ctx.lineTo(cx - sw - lean * 0.3, base - 7 * s);
+  ctx.quadraticCurveTo(cx - sw * 0.84, shTop + 1.5 * s, hx - rx * 1.05, shTop);
+  ctx.quadraticCurveTo(hx, shTop - 4.6 * s, hx + rx * 1.05, shTop);
+  ctx.quadraticCurveTo(cx + sw * 0.84, shTop + 1.5 * s, cx + sw - lean * 0.3, base - 7 * s);
+  ctx.lineTo(cx + sw, base + 14);
+  ctx.closePath();
+
+  ctx.moveTo(hx + rx, hcy);
+  ctx.ellipse(hx, hcy, rx, ry, 0, 0, Math.PI * 2);
+  ctx.closePath();
+
+  if (hat === 1) {
+    crown = bankSpan(rng, 15, 19) * s;
+    brim = rx * 1.62;
+    ctx.moveTo(hx - rx * 0.94, headTop + 2);
+    ctx.lineTo(hx - rx * 1.04, headTop - crown);
+    ctx.lineTo(hx + rx * 1.04, headTop - crown);
+    ctx.lineTo(hx + rx * 0.94, headTop + 2);
+    ctx.closePath();
+    ctx.moveTo(hx + brim, headTop + 1);
+    ctx.ellipse(hx, headTop + 1, brim, 2.9 * s, 0, 0, Math.PI * 2);
+    ctx.closePath();
+    det.push([hx - rx * 1.02, headTop - 5.5 * s, rx * 2.04, 3.4 * s]);
+  } else if (hat === 2) {
+    crown = 8.4 * s;
+    brim = rx * 1.44;
+    ctx.moveTo(hx - rx * 0.98, headTop + 2);
+    ctx.quadraticCurveTo(hx, headTop - crown * 2.1, hx + rx * 0.98, headTop + 2);
+    ctx.closePath();
+    ctx.moveTo(hx + brim, headTop + 2.5);
+    ctx.ellipse(hx, headTop + 2.5, brim, 2.5 * s, 0, 0, Math.PI * 2);
+    ctx.closePath();
+    det.push([hx - rx * 0.9, headTop - 1.4 * s, rx * 1.8, 2.6 * s]);
+  }
+
+  det.push([hx - 4.6 * s, hcy + ry - 1.5 * s, 9.2 * s, 7 * s]);
+  det.push([cx - 1.2 * s, shTop + 3 * s, 2.4 * s, base - shTop - 3 * s]);
+  det.push([cx - sw * 0.66, shTop + 6 * s, sw * 0.2, base - shTop - 6 * s]);
+  det.push([cx + sw * 0.46, shTop + 6 * s, sw * 0.2, base - shTop - 6 * s]);
+}
+
+/* The things left standing on the counter: ledgers, a balance, a lamp. They
+   belong to the near layer, so they cut in front of the clerks. */
+
+function bankLedgers(ctx, x, y, w, det) {
+  var leaves = 3;
+  var i, t, lw;
+  for (i = 0; i < leaves; i += 1) {
+    t = y - 5.5 * (i + 1);
+    lw = w - i * 4;
+    ctx.rect(x + i * 2, t, lw, 5.5);
+    det.push([x + i * 2 + 1.6, t + 1.4, lw - 3.2, 1]);
+  }
+}
+
+function bankOpenBook(ctx, x, y, w, det) {
+  var half = w / 2;
+  ctx.moveTo(x, y);
+  ctx.lineTo(x + 2.5, y - 9);
+  ctx.lineTo(x + half, y - 4.5);
+  ctx.lineTo(x + half, y);
+  ctx.closePath();
+  ctx.moveTo(x + half, y);
+  ctx.lineTo(x + half, y - 4.5);
+  ctx.lineTo(x + w - 2.5, y - 9);
+  ctx.lineTo(x + w, y);
+  ctx.closePath();
+  det.push([x + 4, y - 6.5, half - 5, 0.9]);
+  det.push([x + half + 1, y - 6.5, half - 5, 0.9]);
+  det.push([x + half - 0.6, y - 5, 1.2, 5]);
+}
+
+function bankScale(ctx, cx, y, det) {
+  var beam = 30;
+  var post = 22;
+  var top = y - post;
+  var i, px;
+  ctx.rect(cx - 6, y - 2.6, 12, 2.6);
+  ctx.rect(cx - 2, top, 4, post);
+  ctx.rect(cx - beam / 2, top - 1.6, beam, 2.2);
+  for (i = 0; i < 2; i += 1) {
+    px = cx + (i === 0 ? -beam / 2 + 1 : beam / 2 - 3);
+    ctx.rect(px + 0.6, top, 0.9, 7);
+    ctx.moveTo(px - 3.4, top + 7);
+    ctx.lineTo(px + 5.4, top + 7);
+    ctx.lineTo(px + 3.6, top + 10.4);
+    ctx.lineTo(px - 1.6, top + 10.4);
+    ctx.closePath();
+  }
+  det.push([cx - 1, top + 2, 2, post - 4]);
+}
+
+function bankLamp(ctx, cx, y, det) {
+  var stem = 20;
+  var top = y - stem;
+  ctx.rect(cx - 7, y - 2.4, 14, 2.4);
+  ctx.rect(cx - 1.8, top, 3.6, stem);
+  ctx.moveTo(cx - 11, top);
+  ctx.lineTo(cx - 6, top - 8.5);
+  ctx.lineTo(cx + 6, top - 8.5);
+  ctx.lineTo(cx + 11, top);
+  ctx.closePath();
+  det.push([cx - 9.5, top - 2.4, 19, 1.4]);
+}
+
+/* One rank of clerks. Far rank darker and shorter, near rank lighter and
+   carrying the counter furniture and the hatching. */
+
+function bankRank(ctx, rng, layer, W, H, hatch) {
+  var det = [];
+  var x = bankSpan(rng, 34, 68);
+  var n = 0;
+  var h, s, hat, lean, cx;
+  ctx.save();
+  ctx.beginPath();
+  while (x < W - 30 && n < layer.max) {
+    s = bankSpan(rng, layer.sMin, layer.sMax);
+    h = bankSpan(rng, layer.hMin, layer.hMax);
+    hat = rng() < layer.hatOdds ? bankInt(rng, 1, 2) : 0;
+    lean = bankSpan(rng, -5.5, 5.5) * s;
+    cx = x + 22 * s;
+    bankFigure(ctx, rng, cx, layer.base, h, s, hat, lean, det);
+    x = cx + bankSpan(rng, layer.gapMin, layer.gapMax);
+    n += 1;
+  }
+  if (layer.props) { layer.props(ctx, rng, det); }
+  ctx.fillStyle = layer.fill;
+  ctx.fill();
+  ctx.clip();
+  if (hatch) { bankHatch(ctx, W, H, 4, 0.5); }
+  ctx.fillStyle = layer.dark;
+  for (n = 0; n < det.length; n += 1) {
+    ctx.fillRect(det[n][0], det[n][1], det[n][2], det[n][3]);
+  }
+  ctx.restore();
+}
+
+/* The counter itself, the nearest plane, with its panelled front. */
+
+function bankCounter(ctx, W, H, y) {
+  var i, panels, pitch;
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(0, y, W, H - y);
+  ctx.fillStyle = "#5A5348";
+  ctx.fill();
+  ctx.clip();
+  bankHatch(ctx, W, H, 5, 0.42);
+
+  ctx.fillStyle = "#3D372F";
+  ctx.fillRect(0, y + 7, W, 2.2);
+  panels = 14;
+  pitch = W / panels;
+  for (i = 0; i < panels; i += 1) {
+    ctx.fillRect(pitch * i + pitch * 0.12, y + 15, pitch * 0.76, H - y - 22);
+    ctx.fillRect(pitch * i, y + 9, 2.4, H - y - 9);
+  }
+  ctx.restore();
+
+  ctx.fillStyle = "rgba(216, 208, 190, 0.16)";
+  ctx.fillRect(0, y, W, 1.4);
+  var sh = ctx.createLinearGradient(0, y - 18, 0, y + 2);
+  sh.addColorStop(0, "rgba(16, 12, 8, 0)");
+  sh.addColorStop(1, "rgba(16, 12, 8, 0.55)");
+  ctx.fillStyle = sh;
+  ctx.fillRect(0, y - 18, W, 20);
+}
+
+/* The vignette edge: the plate fades to nothing at the sides, the way a
+   banknote cartouche does, and closes on two hairlines. */
+
+function bankScrim(ctx, W, H) {
+  var left = ctx.createLinearGradient(0, 0, W * 0.2, 0);
+  left.addColorStop(0, "rgba(16, 12, 8, 0.96)");
+  left.addColorStop(1, "rgba(16, 12, 8, 0)");
+  ctx.fillStyle = left;
+  ctx.fillRect(0, 0, W * 0.2, H);
+
+  var right = ctx.createLinearGradient(W, 0, W * 0.8, 0);
+  right.addColorStop(0, "rgba(16, 12, 8, 0.96)");
+  right.addColorStop(1, "rgba(16, 12, 8, 0)");
+  ctx.fillStyle = right;
+  ctx.fillRect(W * 0.8, 0, W * 0.2, H);
+
+  var top = ctx.createLinearGradient(0, 0, 0, 40);
+  top.addColorStop(0, "rgba(16, 12, 8, 0.9)");
+  top.addColorStop(1, "rgba(16, 12, 8, 0)");
+  ctx.fillStyle = top;
+  ctx.fillRect(0, 0, W, 40);
+
+  var foot = ctx.createLinearGradient(0, H - 26, 0, H);
+  foot.addColorStop(0, "rgba(16, 12, 8, 0)");
+  foot.addColorStop(1, "rgba(16, 12, 8, 0.78)");
+  ctx.fillStyle = foot;
+  ctx.fillRect(0, H - 26, W, 26);
+
+  ctx.fillStyle = "rgba(74, 64, 52, 0.7)";
+  ctx.fillRect(0, 0, W, 1);
+  ctx.fillRect(0, H - 1, W, 1);
+}
+
+function drawBankers(canvas) {
+  var W = 1176, H = 200, S = 2;
+  var counter = 150;
+  var i;
+  canvas.width = W * S;
+  canvas.height = H * S;
+  /* The stylesheet takes the vignette fluid below the desktop sheet width,
+     and an inline size would beat it. */
+  if (window.innerWidth > 1287) {
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
+  } else {
+    canvas.style.width = "100%";
+    canvas.style.height = "120px";
+  }
+  var ctx = canvas.getContext("2d");
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.save();
+  ctx.scale(S, S);
+
+  var rng = bankRng(BANK_SEED);
+
+  bankGround(ctx, W, H);
+  bankArcade(ctx, rng, W, 14, counter + 4);
+
+  var ranks = [
+    {
+      base: counter + 2, hMin: 62, hMax: 82, sMin: 0.82, sMax: 0.96,
+      gapMin: 118, gapMax: 176, hatOdds: 0.5, max: 5,
+      fill: "#2E2B26", dark: "#201E1A", props: null
+    },
+    {
+      base: counter + 2, hMin: 76, hMax: 104, sMin: 0.98, sMax: 1.16,
+      gapMin: 152, gapMax: 214, hatOdds: 0.72, max: 5,
+      fill: "#433E35", dark: "#2E2A24",
+      props: function (c, r, det) {
+        bankLedgers(c, 196, counter, 34, det);
+        bankOpenBook(c, 402, counter, 46, det);
+        bankScale(c, 606, counter, det);
+        bankLedgers(c, 742, counter, 28, det);
+        bankLamp(c, 928, counter, det);
+      }
+    }
+  ];
+
+  for (i = 0; i < ranks.length; i += 1) {
+    bankRank(ctx, rng, ranks[i], W, H, i === ranks.length - 1);
+  }
+
+  bankCounter(ctx, W, H, counter);
+  bankHatch(ctx, W, H, 9, 0.14);
+  bankScrim(ctx, W, H);
+  ctx.restore();
+}
+
+var bankEl = document.getElementById("bankersCanvas");
+if (bankEl) { drawBankers(bankEl); }
 
 boot();
 
