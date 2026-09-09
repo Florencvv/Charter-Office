@@ -577,6 +577,41 @@ footer .cols { border-top: 1px solid #4A4034; padding-top: 20px; }
 .exWrap button.exOpt.exChosen { border-left-color: #F0EBDF; }
 .postLong { color: #E2DCC8; }
 
+.arrowCue { pointer-events: none; }
+.arrowCue svg { display: block; overflow: visible; }
+.arrowCue path {
+  fill: none;
+  stroke: #F4F0E6;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+.arrowCue .arrowHead { stroke-width: 1.5; }
+.arrowNote {
+  font-family: Copperplate, "Copperplate Gothic Light", "Engravers MT", Optima, Candara, "Gill Sans MT", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 10px;
+  line-height: 14px;
+  white-space: nowrap;
+  color: #F4F0E6;
+  opacity: 0.8;
+}
+
+.arrowStart {
+  position: absolute;
+  top: -44px;
+  right: 100%;
+  margin-right: 14px;
+}
+.arrowStart .arrowNote { position: absolute; left: 0; bottom: 1px; }
+
+.arrowThen { position: absolute; top: 100%; left: 252px; }
+.arrowThen .arrowNote { position: absolute; top: 4px; left: 100%; margin-left: 18px; }
+
+.arrowNudge { display: inline-flex; align-items: center; gap: 14px; }
+
 /* The brief said desktop only, and that was right for a counter you stand at.
    It stops being right the moment the point is a link on X, where most of the
    traffic arrives on a phone. One breakpoint, no second design: the fixed
@@ -710,9 +745,9 @@ footer .cols { border-top: 1px solid #4A4034; padding-top: 20px; }
       </div>
     </div>
     <span class="arrowCue arrowStart" aria-hidden="true">
-  <svg width="108" height="78" viewBox="0 0 108 78">
-    <path d="M 8 13 C 22 5 42 11 56 24 C 66 33 71 45 79 54 C 84 60 91 65 98 69"></path>
-    <path d="M 92 58 Q 96 64 98 69 Q 92 71 84 70"></path>
+  <svg width="120" height="80" viewBox="0 0 120 80">
+    <path class="arrowShaft" d="M 10 15 C 27 6 51 13 67 30 C 76 40 82 52 92 60 C 98 65 104 69 110 72"></path>
+    <path class="arrowHead" d="M 102 62 Q 105 67 110 72 Q 103 74 96 72"></path>
   </svg>
   <span class="arrowNote">start here</span>
 </span>
@@ -764,8 +799,8 @@ footer .cols { border-top: 1px solid #4A4034; padding-top: 20px; }
     </div>
     <span class="arrowCue arrowThen" aria-hidden="true">
   <svg width="96" height="66" viewBox="0 0 96 66">
-    <path d="M 87 10 C 75 6 61 14 50 25 C 41 34 32 44 22 55"></path>
-    <path d="M 35 51 Q 27 54 22 55 Q 25 48 24 41"></path>
+    <path class="arrowShaft" d="M 86 12 C 72 9 56 16 44 28 C 36 36 27 45 20 56"></path>
+    <path class="arrowHead" d="M 31 49 Q 26 53 20 56 Q 22 50 22 44"></path>
   </svg>
   <span class="arrowNote">then this</span>
 </span>
@@ -812,9 +847,9 @@ footer .cols { border-top: 1px solid #4A4034; padding-top: 20px; }
     <button class="paper" id="examStart">Sit the examination</button>
     <span class="arrowCue arrowNudge" aria-hidden="true">
   <span class="arrowNote">then post it</span>
-  <svg width="40" height="18" viewBox="0 0 40 18">
-    <path d="M 3 14 C 11 9 20 7 29 9 C 32 9 34 10 36 11"></path>
-    <path d="M 30 3 Q 34 7 36 11 Q 31 13 25 12"></path>
+  <svg width="48" height="22" viewBox="0 0 48 22">
+    <path class="arrowShaft" d="M 5 18 C 13 14 22 10 31 8 C 35 7 39 8 43 11"></path>
+    <path class="arrowHead" d="M 40 3 Q 42 7 43 11 Q 38 13 34 12"></path>
   </svg>
 </span>
   </div>
